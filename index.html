@@ -14,32 +14,32 @@
             --light: #e0e0e0;
             --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, var(--dark), var(--gray), var(--dark));
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         section {
             padding: 60px 0;
         }
-        
-        /* Header e Logo */
+
+        /* Cabeçalho e logotipo */
         header {
             background: rgba(0, 0, 0, 0.9);
             padding: 15px 0;
@@ -51,21 +51,21 @@
             backdrop-filter: blur(10px);
             transition: var(--transition);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
         }
-        
+
         .logo {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             z-index: 1001;
         }
-        
+
         .logo-line {
             font-size: 1.8rem;
             font-weight: 900;
@@ -75,20 +75,28 @@
             line-height: 1.1;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
-        
-        .logo-line:nth-child(1) { font-size: 2rem; }
-        .logo-line:nth-child(2) { font-size: 2.8rem; }
-        .logo-line:nth-child(3) { font-size: 2.2rem; }
-        
+
+        .logo-line:nth-child(1) {
+            font-size: 2rem;
+        }
+
+        .logo-line:nth-child(2) {
+            font-size: 2.8rem;
+        }
+
+        .logo-line:nth-child(3) {
+            font-size: 2.2rem;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
             margin-left: 20px;
         }
-        
+
         nav ul li a {
             color: var(--light);
             text-decoration: none;
@@ -99,13 +107,13 @@
             transition: var(--transition);
             position: relative;
         }
-        
+
         nav ul li a:hover,
         nav ul li a.active {
             color: var(--darker);
             background: var(--primary);
         }
-        
+
         nav ul li a::after {
             content: '';
             position: absolute;
@@ -117,12 +125,12 @@
             background: var(--primary);
             transition: var(--transition);
         }
-        
+
         nav ul li a:hover::after,
         nav ul li a.active::after {
             width: 80%;
         }
-        
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -132,8 +140,8 @@
             cursor: pointer;
             z-index: 1002;
         }
-        
-        /* Hero Section */
+
+        /* Seção Hero */
         .hero {
             height: 100vh;
             min-height: 600px;
@@ -144,18 +152,17 @@
             position: relative;
             overflow: hidden;
             margin-top: 70px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
-        
+
         .hero-content {
             max-width: 800px;
             padding: 20px;
             z-index: 2;
         }
-        
+
         .hero h1 {
             font-size: 3rem;
             color: var(--primary);
@@ -163,7 +170,7 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             animation: fadeInDown 1s ease;
         }
-        
+
         .hero p {
             font-size: 1.5rem;
             color: var(--light);
@@ -171,7 +178,7 @@
             font-weight: 300;
             animation: fadeInUp 1s ease;
         }
-        
+
         .hero-btn {
             display: inline-block;
             background: var(--primary);
@@ -186,24 +193,183 @@
             margin: 0 8px 10px;
             animation: fadeIn 1.5s ease;
         }
-        
+
         .hero-btn:hover {
             background: transparent;
             color: var(--primary);
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
         }
-        
+
         .hero-btn.secondary {
             background: transparent;
             color: var(--primary);
         }
-        
+
         .hero-btn.secondary:hover {
             background: var(--primary);
             color: var(--darker);
         }
-        
+
+        /* Botão do Questionário */
+        .questionnaire-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: var(--darker);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .questionnaire-btn:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Modal do Questionário */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: rgba(26, 26, 26, 0.95);
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: #fff;
+        }
+
+        /* Estilos do Questionário */
+        .questionnaire-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .questionnaire-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .questionnaire-section {
+            margin-bottom: 40px;
+        }
+
+        .questionnaire-section h2 {
+            font-size: 20px;
+            font-weight: normal;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #444;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: normal;
+            color: var(--light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #2d2d2d;
+            color: var(--light);
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #333;
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            margin-bottom: 15px;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            display: inline;
+            font-weight: normal;
+            color: var(--light);
+        }
+
+        .questionnaire-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #ccc;
+        }
+
         /* Serviços */
         .services-section {
             background: rgba(26, 26, 26, 0.8);
@@ -213,7 +379,7 @@
             border: 1px solid #333;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -222,7 +388,7 @@
             position: relative;
             padding-bottom: 12px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -234,14 +400,14 @@
             background: var(--primary);
             border-radius: 2px;
         }
-        
+
         .service-tabs {
             display: flex;
             justify-content: center;
             margin-bottom: 25px;
             flex-wrap: wrap;
         }
-        
+
         .service-tab {
             background: transparent;
             color: var(--light);
@@ -254,33 +420,33 @@
             transition: var(--transition);
             font-weight: bold;
         }
-        
+
         .service-tab:hover,
         .service-tab.active {
             background: var(--primary);
             color: var(--darker);
         }
-        
+
         .service-content {
             display: none;
         }
-        
+
         .service-content.active {
             display: block;
         }
-        
+
         .table-container {
             overflow-x: auto;
             margin-bottom: 25px;
             border-radius: 8px;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
             min-width: 800px;
         }
-        
+
         th {
             background: #333;
             color: var(--primary);
@@ -290,29 +456,29 @@
             border-bottom: 2px solid var(--primary);
             font-weight: 600;
         }
-        
+
         td {
             padding: 14px 12px;
             border-bottom: 1px solid #444;
             color: var(--light);
             font-size: 0.95rem;
         }
-        
+
         tr:nth-child(even) {
             background-color: rgba(34, 34, 34, 0.5);
         }
-        
+
         tr:hover {
             background-color: rgba(42, 42, 42, 0.7);
             transition: var(--transition);
         }
-        
-        .destaque {
+
+        .highlight {
             font-weight: bold;
             color: var(--primary);
             font-size: 1.1rem;
         }
-        
+
         .service-icon {
             display: inline-block;
             width: 35px;
@@ -326,7 +492,14 @@
             font-weight: bold;
             font-size: 1.1rem;
         }
-        
+
+        .service-description {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
         .notes {
             background: rgba(34, 34, 34, 0.7);
             padding: 18px;
@@ -334,32 +507,32 @@
             margin-top: 25px;
             border-left: 5px solid var(--primary);
         }
-        
+
         .notes h3 {
             margin-bottom: 12px;
             color: var(--primary);
             font-size: 1.3rem;
         }
-        
+
         .notes ul {
             padding-left: 18px;
         }
-        
+
         .notes li {
             margin-bottom: 8px;
             line-height: 1.5;
             color: var(--light);
             font-size: 1rem;
         }
-        
-        /* Galerias */
+
+        /* Galeria */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 18px;
             margin: 35px 0;
         }
-        
+
         .gallery-item {
             border-radius: 10px;
             overflow: hidden;
@@ -368,23 +541,23 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: var(--transition);
         }
-        
+
         .gallery-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
-        
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .gallery-item:hover img {
             transform: scale(1.1);
         }
-        
+
         .gallery-caption {
             position: absolute;
             bottom: 0;
@@ -397,11 +570,11 @@
             transition: var(--transition);
             font-size: 0.95rem;
         }
-        
+
         .gallery-item:hover .gallery-caption {
             transform: translateY(0);
         }
-        
+
         /* Contato */
         .contact-section {
             background: rgba(26, 26, 26, 0.8);
@@ -411,147 +584,102 @@
             border: 1px solid var(--primary);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 35px;
         }
-        
+
         .contact-info h3 {
             color: var(--primary);
             margin-bottom: 18px;
             font-size: 1.6rem;
         }
-        
+
         .contact-detail {
             display: flex;
             align-items: flex-start;
             margin-bottom: 22px;
         }
-        
+
         .contact-icon {
             font-size: 1.4rem;
             color: var(--primary);
             margin-right: 12px;
             min-width: 28px;
         }
-        
+
         .contact-text h4 {
             margin-bottom: 4px;
             color: var(--primary);
             font-size: 1.1rem;
         }
-        
+
         .contact-text p {
             font-size: 1rem;
         }
-        
+
         .contact-form {
             background: rgba(34, 34, 34, 0.7);
             padding: 25px;
             border-radius: 10px;
         }
-        
+
         .contact-form h3 {
             margin-bottom: 20px;
             color: var(--primary);
             font-size: 1.6rem;
         }
-        
-        .form-group {
-            margin-bottom: 18px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 7px;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 13px;
-            border-radius: 5px;
-            border: 1px solid #444;
-            background: #2d2d2d;
-            color: var(--light);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-        }
-        
-        textarea.form-control {
-            min-height: 130px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: var(--primary);
-            color: var(--darker);
-            border: none;
-            padding: 14px 35px;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: var(--transition);
-            display: block;
-            width: 100%;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
-        }
-        
-        /* Footer */
+
+        /* Rodapé */
         footer {
             background: rgba(0, 0, 0, 0.9);
             color: var(--primary);
             padding: 50px 0 25px;
             border-top: 3px solid var(--primary);
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 35px;
             margin-bottom: 35px;
         }
-        
+
         .footer-logo {
             display: flex;
             flex-direction: column;
         }
-        
+
         .footer-logo .logo-line {
             font-size: 1.3rem;
         }
-        
-        .footer-logo .logo-line:nth-child(1) { font-size: 1.5rem; }
-        .footer-logo .logo-line:nth-child(2) { font-size: 2.2rem; }
-        .footer-logo .logo-line:nth-child(3) { font-size: 1.7rem; }
-        
+
+        .footer-logo .logo-line:nth-child(1) {
+            font-size: 1.5rem;
+        }
+
+        .footer-logo .logo-line:nth-child(2) {
+            font-size: 2.2rem;
+        }
+
+        .footer-logo .logo-line:nth-child(3) {
+            font-size: 1.7rem;
+        }
+
         .footer-logo p {
             margin-top: 12px;
             color: var(--light);
             font-size: 0.95rem;
         }
-        
+
         .footer-info h3 {
             color: var(--primary);
             margin-bottom: 15px;
             font-size: 1.4rem;
         }
-        
+
         .footer-info p {
             margin: 8px 0;
             color: var(--light);
@@ -559,24 +687,24 @@
             display: flex;
             align-items: center;
         }
-        
+
         .footer-info i {
             color: var(--primary);
             margin-right: 10px;
             min-width: 20px;
         }
-        
+
         .footer-social h3 {
             color: var(--primary);
             margin-bottom: 18px;
             font-size: 1.4rem;
         }
-        
+
         .social-links {
             display: flex;
             gap: 12px;
         }
-        
+
         .social-links a {
             display: inline-flex;
             align-items: center;
@@ -590,12 +718,12 @@
             transition: var(--transition);
             text-decoration: none;
         }
-        
+
         .social-links a:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
         }
-        
+
         .copyright {
             text-align: center;
             margin-top: 35px;
@@ -604,13 +732,13 @@
             color: #aaa;
             font-size: 0.85rem;
         }
-        
+
         /* Animações */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -621,7 +749,7 @@
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -632,31 +760,27 @@
                 transform: translateY(0);
             }
         }
-        
+
         /* Responsividade */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.6rem;
             }
-            
             .hero p {
                 font-size: 1.3rem;
             }
-            
             .section-title {
                 font-size: 2.2rem;
             }
-            
             .contact-container {
                 gap: 30px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
             }
-            
             nav ul {
                 position: fixed;
                 top: 0;
@@ -669,136 +793,131 @@
                 transition: var(--transition);
                 z-index: 1000;
             }
-            
             nav ul.active {
                 right: 0;
             }
-            
             nav ul li {
                 margin: 15px 0;
                 padding: 0 20px;
             }
-            
             nav ul li a {
                 display: block;
                 padding: 12px;
                 text-align: center;
                 font-size: 1.2rem;
             }
-            
             .header-container {
                 flex-direction: row;
             }
-            
             .logo {
                 align-items: flex-start;
             }
-            
             .hero h1 {
                 font-size: 2.3rem;
             }
-            
             .hero p {
                 font-size: 1.1rem;
             }
-            
             .hero-btns {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
-            
             .hero-btn {
                 margin: 8px 0;
                 width: 80%;
                 max-width: 300px;
             }
-            
             .section-title {
                 font-size: 2rem;
             }
-            
             .service-tabs {
                 flex-direction: column;
                 align-items: center;
             }
-            
             .service-tab {
                 width: 100%;
                 max-width: 300px;
                 margin: 5px 0;
             }
-            
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
-            
             .gallery-item {
                 height: 250px;
             }
-            
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            .modal-content {
+                padding: 20px;
+                margin: 20px auto;
+            }
         }
-        
+
         @media (max-width: 576px) {
             .logo-line {
                 font-size: 1.4rem;
             }
-            
-            .logo-line:nth-child(1) { font-size: 1.6rem; }
-            .logo-line:nth-child(2) { font-size: 2.2rem; }
-            .logo-line:nth-child(3) { font-size: 1.8rem; }
-            
+            .logo-line:nth-child(1) {
+                font-size: 1.6rem;
+            }
+            .logo-line:nth-child(2) {
+                font-size: 2.2rem;
+            }
+            .logo-line:nth-child(3) {
+                font-size: 1.8rem;
+            }
             .hero-content {
                 padding: 15px;
             }
-            
             .hero h1 {
                 font-size: 2rem;
                 line-height: 1.2;
             }
-            
             .hero p {
                 font-size: 1rem;
                 margin-bottom: 20px;
             }
-            
-            .services-section,
-            .contact-section {
+            .services-section, .contact-section {
                 padding: 20px;
             }
-            
             .section-title {
                 font-size: 1.8rem;
                 margin-bottom: 25px;
             }
-            
             .service-tab {
                 padding: 8px 15px;
                 font-size: 0.95rem;
             }
-            
             .gallery {
                 grid-template-columns: 1fr;
             }
-            
             .gallery-item {
                 height: 280px;
             }
-            
             .contact-container {
                 grid-template-columns: 1fr;
             }
-            
             .contact-form {
                 padding: 20px;
             }
-            
             .form-control {
                 padding: 12px;
+            }
+            .questionnaire-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            .questionnaire-title {
+                font-size: 24px;
+            }
+            .questionnaire-section h2 {
+                font-size: 18px;
             }
         }
     </style>
@@ -812,14 +931,12 @@
                 <div class="logo-line">FOTÓGRAFO</div>
                 <div class="logo-line">AMADOR</div>
             </div>
-            
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
-            
             <nav>
                 <ul>
-                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#home" class="active">Página Inicial</a></li>
                     <li><a href="#services">Serviços</a></li>
                     <li><a href="#portfolio">Portfólio</a></li>
                     <li><a href="#contact">Contato</a></li>
@@ -828,7 +945,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Seção Hero -->
     <section id="home" class="hero">
         <div class="container hero-content">
             <h1>FOTOGRAFIA & FILMAGEM PROFISSIONAL</h1>
@@ -840,14 +957,512 @@
         </div>
     </section>
 
+    <!-- Botão do Questionário -->
+    <div class="questionnaire-btn" id="openQuestionnaire">
+        <i class="fas fa-clipboard-list"></i>
+    </div>
+
+    <!-- Modal do Questionário -->
+    <div class="modal" id="questionnaireModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            
+            <h1 class="questionnaire-title">Questionário de Análise de Perfil de Cliente</h1>
+            <p class="questionnaire-subtitle">Um Fotógrafo Amador de Audiovisual</p>
+
+            <form id="strategyForm">
+                <!-- 1. Dados Gerais -->
+                <div class="questionnaire-section">
+                    <h2>1. Dados Gerais</h2>
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome ou Razão Social:</label>
+                        <input type="text" id="nome" name="nome" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail para contato:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone/WhatsApp:</label>
+                        <input type="tel" id="telefone" name="telefone" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="site">Site ou redes sociais (se aplicável):</label>
+                        <input type="text" id="site" name="site" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Como nos conheceu?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="conheceu-instagram" name="conheceu" value="instagram">
+                                <label for="conheceu-instagram">Instagram</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="conheceu-google" name="conheceu" value="google">
+                                <label for="conheceu-google">Google</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="conheceu-indicacao" name="conheceu" value="indicacao">
+                                <label for="conheceu-indicacao">Indicação</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="conheceu-evento" name="conheceu" value="evento">
+                                <label for="conheceu-evento">Evento</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="conheceu-outro" name="conheceu" value="outro">
+                                <label for="conheceu-outro">Outro:</label>
+                                <input type="text" id="conheceu-outro-texto" name="conheceu-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Perfil e Objetivos -->
+                <div class="questionnaire-section">
+                    <h2>2. Perfil e Objetivos</h2>
+                    
+                    <div class="form-group">
+                        <label>Você está contratando como:</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="contratante-pf" name="contratante" value="pf">
+                                <label for="contratante-pf">Pessoa física (para uso pessoal)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="contratante-pj" name="contratante" value="pj">
+                                <label for="contratante-pj">Pessoa jurídica (empresa/marca)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="contratante-autonomo" name="contratante" value="autonomo">
+                                <label for="contratante-autonomo">Autônomo/freelancer</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="contratante-outro" name="contratante" value="outro">
+                                <label for="contratante-outro">Outro:</label>
+                                <input type="text" id="contratante-outro-texto" name="contratante-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Qual seu principal objetivo com nossos serviços de audiovisual?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="objetivo-divulgar" name="objetivo" value="divulgar">
+                                <label for="objetivo-divulgar">Divulgar marca/produtos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="objetivo-engajar" name="objetivo" value="engajar">
+                                <label for="objetivo-engajar">Engajar audiência</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="objetivo-vender" name="objetivo" value="vender">
+                                <label for="objetivo-vender">Vender mais</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="objetivo-registrar" name="objetivo" value="registrar">
+                                <label for="objetivo-registrar">Registrar evento/momento especial</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="objetivo-redes" name="objetivo" value="redes">
+                                <label for="objetivo-redes">Conteúdo para redes sociais</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="objetivo-outro" name="objetivo" value="outro">
+                                <label for="objetivo-outro">Outro:</label>
+                                <input type="text" id="objetivo-outro-texto" name="objetivo-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projeto">Descreva resumidamente seu projeto ou o que espera alcançar:</label>
+                        <textarea id="projeto" name="projeto" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!-- 3. Sobre Você ou Sua Empresa -->
+                <div class="questionnaire-section">
+                    <h2>3. Sobre Você ou Sua Empresa</h2>
+                    
+                    <div class="form-group">
+                        <label for="ramo">Ramo de atuação (se empresa):</label>
+                        <input type="text" id="ramo" name="ramo" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publico">Público-alvo principal (quem você quer atingir):</label>
+                        <input type="text" id="publico" name="publico" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Faixa etária aproximada do seu público-alvo:</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="faixa-18" name="faixa" value="ate18">
+                                <label for="faixa-18">Até 18 anos</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="faixa-29" name="faixa" value="19a29">
+                                <label for="faixa-29">19 a 29 anos</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="faixa-45" name="faixa" value="30a45">
+                                <label for="faixa-45">30 a 45 anos</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="faixa-60" name="faixa" value="46a60">
+                                <label for="faixa-60">46 a 60 anos</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="faixa-mais60" name="faixa" value="mais60">
+                                <label for="faixa-mais60">Acima de 60 anos</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Perfil do CEO/pessoa contratante (você):</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="perfil-criativo" name="perfil" value="criativo">
+                                <label for="perfil-criativo">Criativo/artístico</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="perfil-analitico" name="perfil" value="analitico">
+                                <label for="perfil-analitico">Analítico/direto</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="perfil-executivo" name="perfil" value="executivo">
+                                <label for="perfil-executivo">Executivo/corporativo</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="perfil-despojado" name="perfil" value="despojado">
+                                <label for="perfil-despojado">Despojado/informal</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="perfil-outro" name="perfil" value="outro">
+                                <label for="perfil-outro">Outro:</label>
+                                <input type="text" id="perfil-outro-texto" name="perfil-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Identidade Visual e Estilo -->
+                <div class="questionnaire-section">
+                    <h2>4. Identidade Visual e Estilo</h2>
+                    
+                    <div class="form-group">
+                        <label for="paleta">Sua empresa/voz tem uma paleta de cores definida? Se sim, quais são?</label>
+                        <textarea id="paleta" name="paleta" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Como você descreveria seu estilo visual?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="estilo-clean" name="estilo" value="clean">
+                                <label for="estilo-clean">Clean/minimalista</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="estilo-moderno" name="estilo" value="moderno">
+                                <label for="estilo-moderno">Moderno/tech</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="estilo-classico" name="estilo" value="classico">
+                                <label for="estilo-classico">Clássico/tradicional</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="estilo-descolado" name="estilo" value="descolado">
+                                <label for="estilo-descolado">Descolado/alternativo</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="estilo-outro" name="estipo" value="outro">
+                                <label for="estilo-outro">Outro:</label>
+                                <input type="text" id="estilo-outro-texto" name="estilo-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Você já tem um manual de marca ou diretrizes visuais?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="manual-sim" name="manual" value="sim">
+                                <label for="manual-sim">Sim</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="manual-nao" name="manual" value="nao">
+                                <label for="manual-nao">Não</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="manual-desenvolvimento" name="manual" value="desenvolvimento">
+                                <label for="manual-desenvolvimento">Em desenvolvimento</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Comunicação e Tom -->
+                <div class="questionnaire-section">
+                    <h2>5. Comunicação e Tom</h2>
+                    
+                    <div class="form-group">
+                        <label>Como você gostaria de ser percebido pelo seu público?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="percepcao-divertido" name="percepcao" value="divertido">
+                                <label for="percepcao-divertido">Divertido/descontraído</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="percepcao-inspirador" name="percepcao" value="inspirador">
+                                <label for="percepcao-inspirador">Inspirador/motivacional</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="percepcao-tecnico" name="percepcao" value="tecnico">
+                                <label for="percepcao-tecnico">Técnico/informativo</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="percepcao-sofisticado" name="percepcao" value="sofisticado">
+                                <label for="percepcao-sofisticado">Sofisticado/exclusivo</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="percepcao-outro" name="percepcao" value="outro">
+                                <label for="percepcao-outro">Outro:</label>
+                                <input type="text" id="percepcao-outro-texto" name="percepcao-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="humor">Você utiliza humor em sua comunicação? Se sim, que tipo?</label>
+                        <textarea id="humor" name="humor" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="girias">Há algum termo, gíria ou expressão que você costuma usar?</label>
+                        <textarea id="girias" name="girias" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!-- 6. Preferências de Conteúdo e Referências -->
+                <div class="questionnaire-section">
+                    <h2>6. Preferências de Conteúdo e Referências</h2>
+                    
+                    <div class="form-group">
+                        <label>Quais redes sociais você mais utiliza?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="redes-instagram" name="redes" value="instagram">
+                                <label for="redes-instagram">Instagram</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="redes-tiktok" name="redes" value="tiktok">
+                                <label for="redes-tiktok">TikTok</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="redes-linkedin" name="redes" value="linkedin">
+                                <label for="redes-linkedin">LinkedIn</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="redes-youtube" name="redes" value="youtube">
+                                <label for="redes-youtube">YouTube</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="redes-facebook" name="redes" value="facebook">
+                                <label for="redes-facebook">Facebook</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="redes-outro" name="redes" value="outro">
+                                <label for="redes-outro">Outro:</label>
+                                <input type="text" id="redes-outro-texto" name="redes-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Que tipo de conteúdo você mais consome ou produz?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="conteudo-tutoriais" name="conteudo" value="tutoriais">
+                                <label for="conteudo-tutoriais">Tutoriais</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="conteudo-bastidores" name="conteudo" value="bastidores">
+                                <label for="conteudo-bastidores">Bastidores</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="conteudo-depoimentos" name="conteudo" value="depoimentos">
+                                <label for="conteudo-depoimentos">Depoimentos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="conteudo-entrevistas" name="conteudo" value="entrevistas">
+                                <label for="conteudo-entrevistas">Entrevistas</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="conteudo-entretenimento" name="conteudo" value="entretenimento">
+                                <label for="conteudo-entretenimento">Entretenimento</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="conteudo-outro" name="conteudo" value="outro">
+                                <label for="conteudo-outro">Outro:</label>
+                                <input type="text" id="conteudo-outro-texto" name="conteudo-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="referencias">Cite 1 a 3 marcas ou perfis que você admira visualmente ou em comunicação:</label>
+                        <textarea id="referencias" name="referencias" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!-- 7. Estilo Musical -->
+                <div class="questionnaire-section">
+                    <h2>7. Estilo Musical (se aplicável para vídeos)</h2>
+                    
+                    <div class="form-group">
+                        <label>Você có preferência por estilo musical nos vídeos?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="musica-sim" name="musica" value="sim">
+                                <label for="musica-sim">Sim</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="musica-nao" name="musica" value="nao">
+                                <label for="musica-nao">Não</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="musica-criterio" name="musica" value="criterio">
+                                <label for="musica-criterio">Deixar a critério da produção</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estilos-musicais">Quais estilos ou bandas/artistas você gosta?</label>
+                        <textarea id="estilos-musicais" name="estilos-musicais" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Prefere músicas com ou sem vocal?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="vocal-sim" name="vocal" value="sim">
+                                <label for="vocal-sim">Com vocal</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="vocal-nao" name="vocal" value="nao">
+                                <label for="vocal-nao">Instrumental</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="vocal-ambos" name="vocal" value="ambos">
+                                <label for="vocal-ambos">Ambos</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Expectativas com Nosso Trabalho -->
+                <div class="questionnaire-section">
+                    <h2>8. Expectativas com Nosso Trabalho</h2>
+                    
+                    <div class="form-group">
+                        <label>O que mais valoriza em um serviço de audiovisual?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="valor-criatividade" name="valor" value="criatividade">
+                                <label for="valor-criatividade">Criatividade</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="valor-rapidez" name="valor" value="rapidez">
+                                <label for="valor-rapidez">Rapidez</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="valor-qualidade" name="valor" value="qualidade">
+                                <label for="valor-qualidade">Qualidade técnica</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="valor-atendimento" name="valor" value="atendimento">
+                                <label for="valor-atendimento">Atendimento personalizado</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="valor-preco" name="valor" value="preco">
+                                <label for="valor-preco">Preço</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="valor-outro" name="valor" value="outro">
+                                <label for="valor-outro">Outro:</label>
+                                <input type="text" id="valor-outro-texto" name="valor-outro-texto" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nao-gostaria">Há algo que você NÃO gostaria de ver no seu projeto?</label>
+                        <textarea id="nao-gostaria" name="nao-gostaria" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!-- 9. Informações Complementares -->
+                <div class="questionnaire-section">
+                    <h2>9. Informações Complementares</h2>
+                    
+                    <div class="form-group">
+                        <label>Possui algum material de referência (fotos, vídeos, moodboards) para compartilhar?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="referencia-sim" name="referencia" value="sim">
+                                <label for="referencia-sim">Sim (pode enviar por e-mail/WhatsApp)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="referencia-nao" name="referencia" value="nao">
+                                <label for="referencia-nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Deseja receber sugestões ou um plano estratégico baseado nas suas respostas?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="estrategia-sim" name="estrategia" value="sim">
+                                <label for="estrategia-sim">Sim</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="estrategia-nao" name="estrategia" value="nao">
+                                <label for="estrategia-nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="questionnaire-footer">
+                    <p><strong>Muito obrigado por dedicar seu tempo a este questionário!</strong></p>
+                    <p>Com base nele, poderemos criar estratégies e propostas muito mais alinhadas ao que você e seu público precisam.</p>
+                    <p><em>Atenciosamente,<br>Equipe Um Fotógrafo Amador de Audiovisual</em></p>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar questionário</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Serviços -->
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title">Nossos Serviços</h2>
-            
             <div class="service-tabs">
                 <button class="service-tab active" data-service="photography">Fotografia</button>
                 <button class="service-tab" data-service="videography">Filmagem</button>
+                <button class="service-tab" data-service="drone">Filmagem com Drone</button>
             </div>
             
             <div class="service-content active" id="photography-content">
@@ -857,8 +1472,8 @@
                             <tr>
                                 <th>SERVIÇO</th>
                                 <th>PACOTE</th>
+                                <th>DESCRIÇÃO</th>
                                 <th>COBERTURA</th>
-                                <th>HORAS/FOTOS</th>
                                 <th>INVESTIMENTO (R$)</th>
                             </tr>
                         </thead>
@@ -866,68 +1481,64 @@
                             <tr>
                                 <td><span class="service-icon">E</span> EVENTOS</td>
                                 <td>Básico</td>
+                                <td class="service-description">Cobertura essencial com foco nos momentos principais</td>
                                 <td>100 fotos editadas</td>
-                                <td>4 horas</td>
-                                <td class="destaque">900</td>
+                                <td class="highlight">1.200</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Standard</td>
+                                <td class="service-description">Cobertura completa com mais detalhes e momentos especiais</td>
                                 <td>250 fotos + 20 retoques</td>
-                                <td>6 horas</td>
-                                <td class="destaque">1.400</td>
+                                <td class="highlight">1.800</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Premium</td>
+                                <td class="service-description">Cobertura premium com todos os momentos, ensaios e making of</td>
                                 <td>400 fotos + 40 retoques</td>
-                                <td>8 horas</td>
-                                <td class="destaque">1.800</td>
+                                <td class="highlight">2.500</td>
                             </tr>
-                            
                             <tr>
                                 <td><span class="service-icon">P</span> PRODUTOS</td>
                                 <td>Pequena Série</td>
+                                <td class="service-description">Fotografia profissional para catálogos e e-commerce</td>
                                 <td>15 produtos (3 fotos cada)</td>
-                                <td>45 fotos</td>
-                                <td class="destaque">650</td>
+                                <td class="highlight">800</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Grande Série</td>
+                                <td class="service-description">Ideal para lojas virtuais com amplo catálogo</td>
                                 <td>40 produtos (4 fotos cada)</td>
-                                <td>160 fotos</td>
-                                <td class="destaque">1.900</td>
+                                <td class="highlight">2.200</td>
                             </tr>
-                            
                             <tr>
                                 <td><span class="service-icon">R</span> RETRATOS</td>
                                 <td>Express</td>
+                                <td class="service-description">Sessão rápida com foco em poses naturais</td>
                                 <td>15 fotos em locação externa</td>
-                                <td>1 hora</td>
-                                <td class="destaque">350</td>
+                                <td class="highlight">450</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Completo</td>
+                                <td class="service-description">Sessão completa dengan diferentes cenários e looks</td>
                                 <td>30 fotos + 5 poses</td>
-                                <td>2 horas</td>
-                                <td class="destaque">600</td>
+                                <td class="highlight">750</td>
                             </tr>
-                            
                             <tr>
                                 <td><span class="service-icon">G</span> GASTRONOMIA</td>
                                 <td>Menu Básico</td>
+                                <td class="service-description">Fotografia gastronômica para cardápios e redes sociais</td>
                                 <td>10 pratos (2 ângulos cada)</td>
-                                <td>20 fotos</td>
-                                <td class="destaque">500</td>
+                                <td class="highlight">600</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                
                 <div class="notes">
-                    <h3>Observações para Fotografia e Filmagem:</h3>
+                    <h3>Observações para Fotografia:</h3>
                     <ul>
                         <li>Preços válidos para dias úteis (segunda a sexta)</li>
                         <li>Finais de semana e feriados: acréscimo de 20%</li>
@@ -935,7 +1546,7 @@
                         <li>Retoques adicionais: R$ 15/foto</li>
                         <li>Prazo de entrega: 5-10 dias úteis após a sessão</li>
                         <li>Pagamento: 50% no agendamento, 50% na entrega</li>
-                        <li>Os preços podem mudar devido a dinâmica do trabalho solicitado.</li>
+                        <li>Os preços podem mudar devido à dinâmica do trabalho solicitado.</li>
                     </ul>
                 </div>
             </div>
@@ -947,8 +1558,8 @@
                             <tr>
                                 <th>SERVIÇO</th>
                                 <th>PACOTE</th>
+                                <th>DESCRIÇÃO</th>
                                 <th>COBERTURA</th>
-                                <th>DURAÇÃO/ENTREGAS</th>
                                 <th>INVESTIMENTO (R$)</th>
                             </tr>
                         </thead>
@@ -956,72 +1567,69 @@
                             <tr>
                                 <td><span class="service-icon">E</span> EVENTOS</td>
                                 <td>Básico</td>
-                                <td>1 câmera, momentos principais</td>
+                                <td class="service-description">Cobertura com 1 câmera, foco nos momentos principais</td>
                                 <td>4 horas / Vídeo de 3-5 min</td>
-                                <td class="destaque">1.200</td>
+                                <td class="highlight">1.500</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Standard</td>
-                                <td>2 câmeras, edição criativa</td>
+                                <td class="service-description">Cobertura com 1 câmera e edição criativa (mais câmeras sob consulta)</td>
                                 <td>6 horas / Vídeo de 5-8 min</td>
-                                <td class="destaque">1.800</td>
+                                <td class="highlight">2.200</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Premium</td>
-                                <td>3 câmeras, drone, making of</td>
+                                <td class="service-description">Cobertura completa com making of (drone sob consulta)</td>
                                 <td>8 horas / Vídeo principal + teaser</td>
-                                <td class="destaque">2.500</td>
+                                <td class="highlight">3.000</td>
                             </tr>
-                            
                             <tr>
                                 <td><span class="service-icon">C</span> COMERCIAL</td>
                                 <td>Institucional</td>
-                                <td>Roteiro, 1 locação, 1 ator</td>
+                                <td class="service-description">Vídeo para apresentar sua empresa com roteiro personalizado</td>
                                 <td>Vídeo de 1 min</td>
-                                <td class="destaque">1.500</td>
+                                <td class="highlight">1.800</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Produtos</td>
-                                <td>Estúdio, iluminação profissional</td>
+                                <td class="service-description">Vídeos promocionais para e-commerce e redes sociais</td>
                                 <td>Vídeo de 30-60s por produto</td>
-                                <td class="destaque">800</td>
+                                <td class="highlight">1.000</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Campanha</td>
-                                <td>3 vídeos + roteirização</td>
-                                <td>Vídeos de 15-30s cada</td>
-                                <td class="destaque">3.200</td>
+                                <td class="service-description">Pacote completo para campanhas publicitárias</td>
+                                <td>3 vídeos de 15-90s + roteirização</td>
+                                <td class="highlight">3.800</td>
                             </tr>
-                            
                             <tr>
                                 <td><span class="service-icon">R</span> REDES SOCIAIS</td>
                                 <td>Bronze</td>
-                                <td>1 vídeo (Reels/TikTok)</td>
-                                <td>Vídeo de 15-60s</td>
-                                <td class="destaque">400</td>
+                                <td class="service-description">Conteúdo otimizado para Reels, TikTok e Stories</td>
+                                <td>1 vídeo (15-60s)</td>
+                                <td class="highlight">500</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Prata</td>
+                                <td class="service-description">Pacote para manter suas redes engajadas</td>
                                 <td>3 vídeos + edição criativa</td>
-                                <td>Vídeos de 15-60s</td>
-                                <td class="destaque">700</td>
+                                <td class="highlight">900</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Ouro</td>
-                                <td>6 vídeos + animações</td>
-                                <td>Vídeos de 15-90s</td>
-                                <td class="destaque">1.200</td>
+                                <td class="service-description">Conteúdo premium com animações e efeitos especiais</td>
+                                <td>6 vídeos de 15-90s + animações</td>
+                                <td class="highlight">1.500</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                
                 <div class="notes">
                     <h3>Observações para Filmagem:</h3>
                     <ul>
@@ -1030,9 +1638,80 @@
                         <li>Deslocamento superior a 30km: R$ 2,00/km</li>
                         <li>Edições adicionais: R$ 150/hora</li>
                         <li>Locução profissional: R$ 100/vídeo</li>
-                        <li>Prazo de entrega: 7-15 dias úteis após captação</li>
+                        <li>Prazo de entrega: 7-15 dias úteis após coleta</li>
                         <li>Pagamento: 50% no agendamento, 50% na entrega</li>
-                        <li>Os preços podem mudar devido a dinâmica do trabalho solicitado.</li>
+                        <li>Os preços podem mudar devido à dinâmica do trabalho solicitado.</li>
+                        <li>Uso de câmeras adicionais e equipamentos especiais sob consulta</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="service-content" id="drone-content">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>SERVIÇO</th>
+                                <th>APLICAÇÃO</th>
+                                <th>DESCRIÇÃO</th>
+                                <th>ENTREGA</th>
+                                <th>INVESTIMENTO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="service-icon">A</span> AÉREAS</td>
+                                <td>Imobiliária</td>
+                                <td class="service-description">Imagens aéreas de propriedades e terrenos</td>
+                                <td>Fotos e vídeos aéreos</td>
+                                <td class="highlight">Sob consulta</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Eventos</td>
+                                <td class="service-description">Cenas panorâmicas para mostrar a grandiosidade do evento</td>
+                                <td>Vídeos e fotos aéreas</td>
+                                <td class="highlight">Sob consulta</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Publicidade</td>
+                                <td class="service-description">Tomadas aéreas criativas para comerciais</td>
+                                <td>Vídeos em alta resolução</td>
+                                <td class="highlight">Sob consulta</td>
+                            </tr>
+                            <tr>
+                                <td><span class="service-icon">M</span> MAPEAMENTO</td>
+                                <td>Construção</td>
+                                <td class="service-description">Monitoramento de obras e progresso de construções</td>
+                                <td>Relatórios com imagens comparativas</td>
+                                <td class="highlight">Sob consulta</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Agricultura</td>
+                                <td class="service-description">Monitoramento de plantações e análise de solo</td>
+                                <td>Imagens multiespectrais</td>
+                                <td class="highlight">Sob consulta</td>
+                            </tr>
+                            <tr>
+                                <td><span class="service-icon">I</span> INSPEÇÃO</td>
+                                <td>Estrutural</td>
+                                <td class="service-description">Inspeção de telhados, torres e estruturas altas</td>
+                                <td>Relatório com imagens detalhadas</td>
+                                <td class="highlight">Sob consulta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="notes">
+                    <h3>Observações para Filmagem com Drone:</h3>
+                    <ul>
+                        <li>Todos os serviços com drone são realizados por operador certificado pela ANAC</li>
+                        <li>Orçamentos personalizados de acordo com as necessidades do projeto</li>
+                        <li>Condições climáticas podem afetar o agendamento</li>
+                        <li>Necessária autorização prévia para voos em áreas restritas</li>
+                        <li>Entre em contato para discutir seu projeto específico</li>
                     </ul>
                 </div>
             </div>
@@ -1043,10 +1722,10 @@
     <section id="portfolio" class="services-section">
         <div class="container">
             <h2 class="section-title">Portfólio</h2>
-            
             <div class="service-tabs">
                 <button class="service-tab active" data-gallery="photo-gallery">Fotografia</button>
                 <button class="service-tab" data-gallery="video-gallery">Filmagem</button>
+                <button class="service-tab" data-gallery="drone-gallery">Drone</button>
             </div>
             
             <div class="gallery active" id="photo-gallery">
@@ -1102,19 +1781,44 @@
                     <div class="gallery-caption">Vídeo de Produto</div>
                 </div>
             </div>
+            
+            <div class="gallery" id="drone-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Imobiliária">
+                    <div class="gallery-caption">Filmagem Aérea para Imobiliária</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1591940743364-7b8c276a5264?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Eventos">
+                    <div class="gallery-caption">Eventos com Cenas Aéreas</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516216628854-8c35cacb3362?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Publicidade">
+                    <div class="gallery-caption">Filmagem Aérea Publicitária</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Construção">
+                    <div class="gallery-caption">Mapeamento de Obras</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Paisagem">
+                    <div class="gallery-caption">Filmagem de Paisagens</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1508614589041-895b44591dd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Inspeção">
+                    <div class="gallery-caption">Inspeção Estrutural com Drone</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contato -->
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            
+            <h2 class="section-title">Entrar em Contato</h2>
             <div class="contact-section">
                 <div class="contact-container">
                     <div class="contact-info">
                         <h3>Informações de Contato</h3>
-                        
                         <div class="contact-detail">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
@@ -1124,17 +1828,15 @@
                                 <p>(62) 98433-2509</p>
                             </div>
                         </div>
-                        
                         <div class="contact-detail">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
                                 <h4>Localização</h4>
-                                <p>Goiânia-GO e Região</p>
+                                <p>Jaraguá - GO e Região</p>
                             </div>
                         </div>
-                        
                         <div class="contact-detail">
                             <div class="contact-icon">
                                 <i class="fas fa-clock"></i>
@@ -1145,51 +1847,46 @@
                                 <p>Sábado: 9h às 13h</p>
                             </div>
                         </div>
-                        
                         <div class="contact-detail">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-text">
-                                <h4>Email</h4>
+                                <h4>E-mail</h4>
                                 <p>eclatnoble1@gmail.com</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="contact-form">
-                        <h3>Envie sua Mensagem</h3>
+                        <h3>Enviar sua mensagem</h3>
                         <form id="contactForm">
                             <div class="form-group">
-                                <label for="name">Nome Completo</label>
+                                <label for="name">Nome completo</label>
                                 <input type="text" id="name" class="form-control" required>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="email">E-mail</label>
                                 <input type="email" id="email" class="form-control" required>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="phone">Telefone</label>
                                 <input type="tel" id="phone" class="form-control" required>
                             </div>
-                            
                             <div class="form-group">
-                                <label for="service">Serviço de Interesse</label>
+                                <label for="service">Serviço de interesse</label>
                                 <select id="service" class="form-control" required>
-                                    <option value="">Selecione um serviço</option>
+                                    <option value="">Selecionar um serviço</option>
                                     <option value="photography">Fotografia</option>
                                     <option value="videography">Filmagem</option>
+                                    <option value="drone">Filmagem com Drone</option>
                                     <option value="both">Ambos</option>
                                 </select>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="message">Mensagem</label>
                                 <textarea id="message" class="form-control" required></textarea>
                             </div>
-                            
                             <button type="submit" class="submit-btn">Enviar Mensagem</button>
                         </form>
                     </div>
@@ -1208,14 +1905,12 @@
                     <div class="logo-line">AMADOR</div>
                     <p>Transformando momentos em memórias eternas</p>
                 </div>
-                
                 <div class="footer-info">
                     <h3>Contato</h3>
                     <p><i class="fas fa-phone"></i> (62) 98433-2509</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Goiânia-GO e Região</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaraguá - GO e Região</p>
                     <p><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h</p>
                 </div>
-                
                 <div class="footer-social">
                     <h3>Siga-nos</h3>
                     <div class="social-links">
@@ -1228,9 +1923,8 @@
                     </div>
                 </div>
             </div>
-            
             <div class="copyright">
-                &copy; 2023 Um Fotógrafo Amador. Todos os direitos reservados.
+                © 2023 Um Fotógrafo Amador. Todos os direitos reservados.
             </div>
         </div>
     </footer>
@@ -1245,12 +1939,11 @@
             this.querySelector('i').classList.toggle('fa-bars');
             this.querySelector('i').classList.toggle('fa-times');
         });
-        
+
         // Navegação suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
                 
@@ -1275,61 +1968,225 @@
                 }
             });
         });
-        
-        // Service Tabs
+
+        // Guias de serviço
         const serviceTabs = document.querySelectorAll('.service-tab');
-        
         serviceTabs.forEach(tab => {
             tab.addEventListener('click', function() {
                 const service = this.getAttribute('data-service');
                 
-                // Ativar tab
+                // Ativar guia
                 serviceTabs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Mostrar conteúdo
+                // Exibir conteúdo
                 document.querySelectorAll('.service-content').forEach(content => {
                     content.classList.remove('active');
                 });
                 document.getElementById(`${service}-content`).classList.add('active');
             });
         });
-        
-        // Gallery Tabs
+
+        // Guias da galeria
         const galleryTabs = document.querySelectorAll('[data-gallery]');
-        
         galleryTabs.forEach(tab => {
             tab.addEventListener('click', function() {
                 const gallery = this.getAttribute('data-gallery');
                 
-                // Ativar tab
+                // Ativar aba
                 galleryTabs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Mostrar galeria
+                // Exibir galeria
                 document.querySelectorAll('.gallery').forEach(g => {
                     g.classList.remove('active');
                 });
                 document.getElementById(gallery).classList.add('active');
             });
         });
-        
-        // Form submission
+
+        // Envio do formulário de contato
         const contactForm = document.getElementById('contactForm');
-        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             // Simulação de envio
             alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
             contactForm.reset();
         });
+
+        // Modal do Questionário
+        const questionnaireModal = document.getElementById('questionnaireModal');
+        const openQuestionnaireBtn = document.getElementById('openQuestionnaire');
+        const closeModalBtn = document.getElementById('closeModal');
         
+        openQuestionnaireBtn.addEventListener('click', function() {
+            questionnaireModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModalBtn.addEventListener('click', function() {
+            questionnaireModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === questionnaireModal) {
+                questionnaireModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Envio do questionário estratégico
+        const strategyForm = document.getElementById('strategyForm');
+        strategyForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Coletar dados do formulário
+            const formData = new FormData(strategyForm);
+            const data = Object.fromEntries(formData);
+            
+            // Formatar mensagem para WhatsApp
+            let message = "📋 *NOVO QUESTIONÁRIO ESTRATÉGICO* 📋\n\n";
+            
+            // 1. Dados Gerais
+            message += "*1. DADOS GERAIS*\n";
+            message += `Nome/Razão Social: ${data.nome || 'Não informado'}\n`;
+            message += `E-mail: ${data.email || 'Não informado'}\n`;
+            message += `Telefone: ${data.telefone || 'Não informado'}\n`;
+            message += `Site/Redes Sociais: ${data.site || 'Não informado'}\n`;
+            message += `Como nos conheceu: ${data.conheceu || 'Não informado'}`;
+            if (data.conheceu === 'outro' && data['conheceu-outro-texto']) {
+                message += ` - ${data['conheceu-outro-texto']}`;
+            }
+            message += "\n\n";
+            
+            // 2. Perfil e Objetivos
+            message += "*2. PERFIL E OBJETIVOS*\n";
+            message += `Contratante: ${data.contratante || 'Não informado'}`;
+            if (data.contratante === 'outro' && data['contratante-outro-texto']) {
+                message += ` - ${data['contratante-outro-texto']}`;
+            }
+            message += `\nObjetivos: `;
+            const objetivos = [];
+            if (data.objetivo && Array.isArray(data.objetivo)) {
+                data.objetivo.forEach(obj => {
+                    if (obj === 'outro' && data['objetivo-outro-texto']) {
+                        objetivos.push(data['objetivo-outro-texto']);
+                    } else {
+                        objetivos.push(obj);
+                    }
+                });
+            }
+            message += objetivos.join(', ') || 'Não informado';
+            message += `\nProjeto: ${data.projeto || 'Não informado'}\n\n`;
+            
+            // 3. Sobre Você ou Sua Empresa
+            message += "*3. SOBRE VOCÊ OU SUA EMPRESA*\n";
+            message += `Ramo: ${data.ramo || 'Não informado'}\n`;
+            message += `Público-alvo: ${data.publico || 'Não informado'}\n`;
+            message += `Faixa etária: ${data.faixa || 'Não informado'}\n`;
+            message += `Perfil: ${data.perfil || 'Não informado'}`;
+            if (data.perfil === 'outro' && data['perfil-outro-texto']) {
+                message += ` - ${data['perfil-outro-texto']}`;
+            }
+            message += "\n\n";
+            
+            // 4. Identidade Visual e Estilo
+            message += "*4. IDENTIDADE VISUAL E ESTILO*\n";
+            message += `Paleta de cores: ${data.paleta || 'Não informado'}\n`;
+            message += `Estilo visual: ${data.estilo || 'Não informado'}`;
+            if (data.estilo === 'outro' && data['estilo-outro-texto']) {
+                message += ` - ${data['estilo-outro-texto']}`;
+            }
+            message += `\nManual de marca: ${data.manual || 'Não informado'}\n\n`;
+            
+            // 5. Comunicação e Tom
+            message += "*5. COMUNICAÇÃO E TOM*\n";
+            message += `Percepção desejada: ${data.percepcao || 'Não informado'}`;
+            if (data.percepcao === 'outro' && data['percepcao-outro-texto']) {
+                message += ` - ${data['percepcao-outro-texto']}`;
+            }
+            message += `\nUso de humor: ${data.humor || 'Não informado'}\n`;
+            message += `Termos/gírias: ${data.girias || 'Não informado'}\n\n`;
+            
+            // 6. Preferências de Conteúdo e Referências
+            message += "*6. PREFERÊNCIAS DE CONTEÚDO E REFERÊNCIAS*\n";
+            message += `Redes sociais: `;
+            const redes = [];
+            if (data.redes && Array.isArray(data.redes)) {
+                data.redes.forEach(rede => {
+                    if (rede === 'outro' && data['redes-outro-texto']) {
+                        redes.push(data['redes-outro-texto']);
+                    } else {
+                        redes.push(rede);
+                    }
+                });
+            }
+            message += redes.join(', ') || 'Não informado';
+            
+            message += `\nTipos de conteúdo: `;
+            const conteudos = [];
+            if (data.conteudo && Array.isArray(data.conteudo)) {
+                data.conteudo.forEach(cont => {
+                    if (cont === 'outro' && data['conteudo-outro-texto']) {
+                        conteudos.push(data['conteudo-outro-texto']);
+                    } else {
+                        conteudos.push(cont);
+                    }
+                });
+            }
+            message += conteudos.join(', ') || 'Não informado';
+            message += `\nReferências: ${data.referencias || 'Não informado'}\n\n`;
+            
+            // 7. Estilo Musical
+            message += "*7. ESTILO MUSICAL*\n";
+            message += `Preferência musical: ${data.musica || 'Não informado'}\n`;
+            message += `Estilos/artistas: ${data['estilos-musicais'] || 'Não informado'}\n`;
+            message += `Preferência vocal: ${data.vocal || 'Não informado'}\n\n`;
+            
+            // 8. Expectativas com Nosso Trabalho
+            message += "*8. EXPECTATIVAS COM NOSSO TRABALHO*\n";
+            message += `Valores: `;
+            const valores = [];
+            if (data.valor && Array.isArray(data.valor)) {
+                data.valor.forEach(val => {
+                    if (val === 'outro' && data['valor-outro-texto']) {
+                        valores.push(data['valor-outro-texto']);
+                    } else {
+                        valores.push(val);
+                    }
+                });
+            }
+            message += valores.join(', ') || 'Não informado';
+            message += `\nO que não gostaria: ${data['nao-gostaria'] || 'Não informado'}\n\n`;
+            
+            // 9. Informações Complementares
+            message += "*9. INFORMAÇÕES COMPLEMENTARES*\n";
+            message += `Material de referência: ${data.referencia || 'Não informado'}\n`;
+            message += `Deseja plano estratégico: ${data.estrategia || 'Não informado'}\n\n`;
+            
+            message += `_Gerar relatório estratégico em https://chat.z.ai/_`;
+            
+            // Codificar mensagem para URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Gerar link do WhatsApp
+            const whatsappURL = `https://wa.me/5562984332509?text=${encodedMessage}`;
+            
+            // Abrir WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Feedback para o usuário
+            alert('Questionário enviado com sucesso! Em breve entraremos em contato para discutir sua estratégia personalizada.');
+            strategyForm.reset();
+            questionnaireModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
         // Ativar link do menu conforme scroll
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
-            
             let current = '';
             
             sections.forEach(section => {
