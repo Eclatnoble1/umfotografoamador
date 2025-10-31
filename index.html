@@ -3,40 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fotografia e Filmagem Profissional - Transformamos momentos em memórias eternas com serviços de alta qualidade">
-    <meta name="keywords" content="fotografia, filmagem, drone, audiovisual, marketing visual, produção">
-    <meta name="author" content="Um Fotógrafo Amador">
-    <meta property="og:title" content="Um Fotógrafo Amador - Fotografia e Filmagem Profissional">
-    <meta property="og:description" content="Serviços profissionais de fotografia, filmagem e produção audiovisual para transformar seus momentos em memórias eternas">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
-    <meta property="og:url" content="https://umfotografoamador.com">
-    <meta property="og:type" content="website">
-    <title>Um Fotógrafo Amador - Fotografia e Filmagem Profissional</title>
+    <title>Um Fotógrafo Amador - Fotografia & Filmagem Profissional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #d4af37;
+            --secondary: #b8941f;
             --dark: #1a1a1a;
             --darker: #000;
             --gray: #2d2d2d;
             --light: #e0e0e0;
-            --transition: all 0.3s ease;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 10px 25px rgba(212, 175, 55, 0.4);
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 15px 40px rgba(212, 175, 55, 0.4);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, var(--dark), var(--gray), var(--dark));
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
             color: var(--light);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -46,56 +41,55 @@
         }
 
         section {
-            padding: 60px 0;
+            padding: 100px 0;
+            position: relative;
         }
 
-        /* Cabeçalho e logotipo */
+        /* Header */
         header {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 0;
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            border-bottom: 3px solid var(--primary);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             transition: var(--transition);
+            padding: 15px 0;
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
         }
 
         .logo {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            z-index: 1001;
+            line-height: 1;
         }
 
         .logo-line {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: var(--primary);
             text-transform: uppercase;
-            line-height: 1.1;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         .logo-line:nth-child(1) {
-            font-size: 2rem;
+            font-size: 1.7rem;
         }
 
         .logo-line:nth-child(2) {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
         }
 
         .logo-line:nth-child(3) {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
         }
 
         nav ul {
@@ -111,34 +105,18 @@
             color: var(--light);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             padding: 8px 15px;
             border-radius: 30px;
             transition: var(--transition);
             position: relative;
+            white-space: nowrap;
         }
 
         nav ul li a:hover,
         nav ul li a.active {
             color: var(--darker);
             background: var(--primary);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover::after,
-        nav ul li a.active::after {
-            width: 80%;
         }
 
         .mobile-menu-btn {
@@ -151,40 +129,66 @@
             z-index: 1002;
         }
 
-        /* Seção Hero */
+        /* Hero Section com Parallax */
         .hero {
             height: 100vh;
-            min-height: 600px;
+            min-height: 800px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
-            margin-top: 70px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            margin-top: 0;
+            padding-top: 100px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+            transform: translateZ(-1px) scale(1.5);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: -1;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 20px;
             z-index: 2;
+            margin-top: 50px;
+            transform: translateZ(0);
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             color: var(--primary);
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 25px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             animation: fadeInDown 1s ease;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--light);
-            margin-bottom: 25px;
+            margin-bottom: 50px;
             font-weight: 300;
             animation: fadeInUp 1s ease;
         }
@@ -193,15 +197,33 @@
             display: inline-block;
             background: var(--primary);
             color: var(--darker);
-            padding: 12px 30px;
-            font-size: 1.1rem;
+            padding: 15px 40px;
+            font-size: 1.2rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
             transition: var(--transition);
             border: 2px solid var(--primary);
-            margin: 0 8px 10px;
+            margin: 0 20px 20px;
             animation: fadeIn 1.5s ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .hero-btn:hover:before {
+            left: 100%;
         }
 
         .hero-btn:hover {
@@ -214,6 +236,7 @@
         .hero-btn.secondary {
             background: transparent;
             color: var(--primary);
+            border-color: var(--primary);
         }
 
         .hero-btn.secondary:hover {
@@ -221,24 +244,763 @@
             color: var(--darker);
         }
 
-        /* Botão do Questionário */
+        /* Seções com efeito parallax */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .parallax-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Seção de Ofertas */
+        .offers-section {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(45, 45, 45, 0.95));
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offers-section:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin: 0 0 50px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .offers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(184, 148, 31, 0.1));
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid var(--primary);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .offer-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .offer-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .offer-price {
+            font-size: 3rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 25px 0;
+            text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .offer-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .offer-features li {
+            margin: 15px 0;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .offer-features li i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Seção de Serviços */
+        .services-section {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            box-shadow: var(--shadow);
+        }
+
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .service-tab {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+            padding: 12px 30px;
+            margin: 10px 15px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+        }
+
+        .service-tab:hover,
+        .service-tab.active {
+            background: var(--primary);
+            color: var(--darker);
+        }
+
+        .service-content {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .service-content.active {
+            display: block;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            background: rgba(51, 51, 51, 0.8);
+            color: var(--primary);
+            padding: 20px 15px;
+            text-align: left;
+            font-size: 1.1rem;
+            border-bottom: 3px solid var(--primary);
+            font-weight: 600;
+        }
+
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(34, 34, 34, 0.5);
+        }
+
+        tr:hover {
+            background-color: rgba(42, 42, 42, 0.7);
+            transition: var(--transition);
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .consult {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .service-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--darker);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .notes {
+            background: rgba(34, 34, 34, 0.7);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border-left: 5px solid var(--primary);
+            backdrop-filter: blur(5px);
+        }
+
+        .notes h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .notes ul {
+            padding-left: 20px;
+        }
+
+        .notes li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        /* Seção de Benefícios */
+        .benefits-section {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            box-shadow: var(--shadow);
+        }
+
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 15px;
+            background: rgba(34, 34, 34, 0.7);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        /* Seção de Portfólio */
+        .portfolio-section {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-tab {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+            padding: 12px 30px;
+            margin: 10px 15px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+        }
+
+        .portfolio-tab:hover,
+        .portfolio-tab.active {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .portfolio-content {
+            display: none;
+        }
+
+        .portfolio-content.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        /* Galeria Moderna */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            color: #fff;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Seção de Depoimentos */
+        .testimonials-section {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: rgba(34, 34, 34, 0.7);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .testimonial-info h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Seção de Contato */
+        .contact-section {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            border: 1px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .contact-text p {
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: rgba(34, 34, 34, 0.7);
+            padding: 40px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: normal;
+            color: var(--light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: rgba(45, 45, 45, 0.7);
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: rgba(51, 51, 51, 0.9);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: var(--darker);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .submit-btn:hover {
+            background: #c19d2e;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Rodapé */
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            color: var(--primary);
+            padding: 70px 0 30px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo .logo-line {
+            font-size: 1.5rem;
+        }
+
+        .footer-logo .logo-line:nth-child(1) {
+            font-size: 1.7rem;
+        }
+
+        .footer-logo .logo-line:nth-child(2) {
+            font-size: 2.4rem;
+        }
+
+        .footer-logo .logo-line:nth-child(3) {
+            font-size: 1.9rem;
+        }
+
+        .footer-logo p {
+            margin-top: 15px;
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        .footer-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .footer-info p {
+            margin: 10px 0;
+            color: var(--light);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-info i {
+            color: var(--primary);
+            margin-right: 12px;
+            min-width: 20px;
+        }
+
+        .footer-social h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--darker);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Botões Flutuantes */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
         .questionnaire-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: var(--primary);
             color: var(--darker);
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             box-shadow: var(--shadow);
             z-index: 999;
             cursor: pointer;
             transition: var(--transition);
+            animation: pulse 2s infinite;
         }
 
         .questionnaire-btn:hover {
@@ -254,20 +1016,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 10000;
-            overflow-y: auto;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
 
         .modal-content {
-            background: rgba(26, 26, 26, 0.95);
+            background: var(--dark);
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
             max-width: 800px;
-            margin: 40px auto;
-            border-radius: 15px;
-            padding: 30px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
             border: 2px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             position: relative;
         }
 
@@ -282,505 +1047,78 @@
         }
 
         .close-modal:hover {
+            color: var(--secondary);
             transform: rotate(90deg);
-            color: #fff;
         }
 
-        /* Indicador de progresso */
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 10001;
-        }
-
-        .progress-bar {
-            height: 5px;
-            background: var(--primary);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        /* Estilos do Questionário */
-        .questionnaire-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: normal;
-            margin-bottom: 10px;
+        .modal h2 {
             color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2rem;
         }
 
-        .questionnaire-subtitle {
-            text-align: center;
-            font-size: 16px;
-            color: #ccc;
+        .question-section {
             margin-bottom: 40px;
-        }
-
-        .questionnaire-section {
-            margin-bottom: 40px;
-        }
-
-        .questionnaire-section h2 {
-            font-size: 20px;
-            font-weight: normal;
-            margin: 30px 0 15px 0;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #444;
-            color: var(--primary);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: normal;
-            color: var(--light);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #444;
-            border-radius: 4px;
-            font-size: 14px;
-            background-color: #2d2d2d;
-            color: var(--light);
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            background-color: #333;
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .checkbox-group,
-        .radio-group {
-            margin-bottom: 15px;
-        }
-
-        .checkbox-item,
-        .radio-item {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input[type="checkbox"],
-        input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        .checkbox-item label,
-        .radio-item label {
-            display: inline;
-            font-weight: normal;
-            color: var(--light);
-        }
-
-        .questionnaire-footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 14px;
-            color: #ccc;
-        }
-
-        .submit-btn {
-            background: var(--primary);
-            color: var(--darker);
-            border: none;
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            display: block;
-            margin: 30px auto 0;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background: #c19d2e;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Serviços */
-        .services-section {
-            background: rgba(26, 26, 26, 0.8);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 1px solid #333;
-            box-shadow: var(--shadow);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin: 0 0 30px;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 12px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .service-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .service-tab {
-            background: transparent;
-            color: var(--light);
-            border: 2px solid var(--primary);
-            padding: 8px 20px;
-            margin: 5px 8px;
-            border-radius: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: bold;
-        }
-
-        .service-tab:hover,
-        .service-tab.active {
-            background: var(--primary);
-            color: var(--darker);
-        }
-
-        .service-content {
             display: none;
         }
 
-        .service-content.active {
+        .question-section.active {
             display: block;
             animation: fadeIn 0.5s ease;
         }
 
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: 25px;
-            border-radius: 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 800px;
-        }
-
-        th {
-            background: #333;
-            color: var(--primary);
-            padding: 15px 12px;
-            text-align: left;
-            font-size: 1rem;
-            border-bottom: 2px solid var(--primary);
-            font-weight: 600;
-        }
-
-        td {
-            padding: 14px 12px;
-            border-bottom: 1px solid #444;
+        .question-section h3 {
             color: var(--light);
-            font-size: 0.95rem;
-        }
-
-        tr:nth-child(even) {
-            background-color: rgba(34, 34, 34, 0.5);
-        }
-
-        tr:hover {
-            background-color: rgba(42, 42, 42, 0.7);
-            transition: var(--transition);
-        }
-
-        .highlight {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .service-icon {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            background: var(--primary);
-            color: var(--darker);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 35px;
-            margin-right: 8px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .service-description {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-top: 5px;
-            font-style: italic;
-        }
-
-        .notes {
-            background: rgba(34, 34, 34, 0.7);
-            padding: 18px;
-            border-radius: 10px;
-            margin-top: 25px;
-            border-left: 5px solid var(--primary);
-        }
-
-        .notes h3 {
-            margin-bottom: 12px;
-            color: var(--primary);
-            font-size: 1.3rem;
-        }
-
-        .notes ul {
-            padding-left: 18px;
-        }
-
-        .notes li {
-            margin-bottom: 8px;
-            line-height: 1.5;
-            color: var(--light);
-            font-size: 1rem;
-        }
-
-        /* Galeria */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 18px;
-            margin: 35px 0;
-        }
-
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            height: 280px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 12px;
-            transform: translateY(100%);
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-
-        /* Contato */
-        .contact-section {
-            background: rgba(26, 26, 26, 0.8);
-            border-radius: 15px;
-            padding: 35px;
-            margin: 30px 0;
-            border: 1px solid var(--primary);
-            box-shadow: var(--shadow);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-        }
-
-        .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 18px;
-            font-size: 1.6rem;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 22px;
-        }
-
-        .contact-icon {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-right: 12px;
-            min-width: 28px;
-        }
-
-        .contact-text h4 {
-            margin-bottom: 4px;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .contact-text p {
-            font-size: 1rem;
-        }
-
-        .contact-form {
-            background: rgba(34, 34, 34, 0.7);
-            padding: 25px;
-            border-radius: 10px;
-        }
-
-        .contact-form h3 {
             margin-bottom: 20px;
-            color: var(--primary);
-            font-size: 1.6rem;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
         }
 
-        /* Rodapé */
-        footer {
-            background: rgba(0, 0, 0, 0.9);
-            color: var(--primary);
-            padding: 50px 0 25px;
-            border-top: 3px solid var(--primary);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 35px;
-            margin-bottom: 35px;
-        }
-
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-logo .logo-line {
-            font-size: 1.3rem;
-        }
-
-        .footer-logo .logo-line:nth-child(1) {
-            font-size: 1.5rem;
-        }
-
-        .footer-logo .logo-line:nth-child(2) {
-            font-size: 2.2rem;
-        }
-
-        .footer-logo .logo-line:nth-child(3) {
-            font-size: 1.7rem;
-        }
-
-        .footer-logo p {
-            margin-top: 12px;
-            color: var(--light);
-            font-size: 0.95rem;
-        }
-
-        .footer-info h3 {
-            color: var(--primary);
+        .radio-group, .checkbox-group {
             margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .footer-info p {
-            margin: 8px 0;
-            color: var(--light);
-            font-size: 0.95rem;
             display: flex;
             align-items: center;
         }
 
-        .footer-info i {
-            color: var(--primary);
+        .radio-group input, .checkbox-group input {
             margin-right: 10px;
-            min-width: 20px;
         }
 
-        .footer-social h3 {
-            color: var(--primary);
-            margin-bottom: 18px;
-            font-size: 1.4rem;
+        .radio-group label, .checkbox-group label {
+            margin-bottom: 0;
         }
 
-        .social-links {
+        .modal-buttons {
             display: flex;
-            gap: 12px;
+            justify-content: space-between;
+            margin-top: 30px;
         }
 
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
+        .modal-btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .modal-btn.prev {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .modal-btn.next, .modal-btn.submit {
             background: var(--primary);
             color: var(--darker);
-            border-radius: 50%;
-            font-size: 1.4rem;
-            transition: var(--transition);
-            text-decoration: none;
         }
 
-        .social-links a:hover {
-            transform: translateY(-5px);
+        .modal-btn:hover {
+            transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 35px;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.85rem;
         }
 
         /* Animações */
@@ -792,7 +1130,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -803,7 +1141,7 @@
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -811,163 +1149,269 @@
             }
         }
 
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Efeito de partículas */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         /* Responsividade */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.4rem;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 2.6rem;
+                font-size: 3rem;
             }
+            
             .hero p {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
+            
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
-            .contact-container {
-                gap: 30px;
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
             }
         }
 
         @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+            
             .mobile-menu-btn {
                 display: block;
             }
+            
             nav ul {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 80%;
                 height: 100vh;
                 background: rgba(0, 0, 0, 0.95);
                 flex-direction: column;
-                padding-top: 80px;
+                padding-top: 100px;
                 transition: var(--transition);
                 z-index: 1000;
+                backdrop-filter: blur(10px);
             }
+            
             nav ul.active {
                 right: 0;
             }
+            
             nav ul li {
-                margin: 15px 0;
-                padding: 0 20px;
+                margin: 20px 0;
+                padding: 0 30px;
             }
+            
             nav ul li a {
                 display: block;
-                padding: 12px;
+                padding: 15px;
                 text-align: center;
                 font-size: 1.2rem;
+                width: 100%;
             }
+            
             .header-container {
                 flex-direction: row;
             }
+            
             .logo {
                 align-items: flex-start;
             }
-            .hero h1 {
-                font-size: 2.3rem;
+            
+            .logo-line {
+                font-size: 1.3rem;
             }
+            
+            .logo-line:nth-child(1) {
+                font-size: 1.5rem;
+            }
+            
+            .logo-line:nth-child(2) {
+                font-size: 2rem;
+            }
+            
+            .logo-line:nth-child(3) {
+                font-size: 1.6rem;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
             .hero p {
                 font-size: 1.1rem;
             }
+            
             .hero-btns {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
+            
             .hero-btn {
-                margin: 8px 0;
+                margin: 10px 0;
                 width: 80%;
                 max-width: 300px;
             }
+            
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
-            .service-tabs {
+            
+            .service-tabs, .portfolio-tabs {
                 flex-direction: column;
                 align-items: center;
             }
-            .service-tab {
+            
+            .service-tab, .portfolio-tab {
                 width: 100%;
                 max-width: 300px;
-                margin: 5px 0;
+                margin: 8px 0;
             }
+            
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
+            
             .gallery-item {
                 height: 250px;
             }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            
+            .whatsapp-float {
+                bottom: 100px;
+                left: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.7rem;
+            }
+            
+            .questionnaire-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
             .modal-content {
-                padding: 20px;
-                margin: 20px auto;
+                padding: 30px 20px;
             }
         }
 
         @media (max-width: 576px) {
-            .logo-line {
-                font-size: 1.4rem;
-            }
-            .logo-line:nth-child(1) {
-                font-size: 1.6rem;
-            }
-            .logo-line:nth-child(2) {
-                font-size: 2.2rem;
-            }
-            .logo-line:nth-child(3) {
-                font-size: 1.8rem;
-            }
             .hero-content {
                 padding: 15px;
             }
+            
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
                 line-height: 1.2;
             }
+            
             .hero p {
                 font-size: 1rem;
-                margin-bottom: 20px;
+                margin-bottom: 40px;
             }
-            .services-section, .contact-section {
-                padding: 20px;
+            
+            .services-section, .contact-section, .portfolio-section {
+                padding: 40px 20px;
             }
+            
             .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 25px;
+                font-size: 2rem;
+                margin-bottom: 40px;
             }
-            .service-tab {
-                padding: 8px 15px;
-                font-size: 0.95rem;
+            
+            .service-tab, .portfolio-tab {
+                padding: 10px 20px;
+                font-size: 1rem;
             }
+            
             .gallery {
                 grid-template-columns: 1fr;
             }
+            
             .gallery-item {
                 height: 280px;
             }
+            
             .contact-container {
                 grid-template-columns: 1fr;
             }
+            
             .contact-form {
-                padding: 20px;
+                padding: 30px 20px;
             }
+            
             .form-control {
                 padding: 12px;
             }
-            .questionnaire-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-            .questionnaire-title {
-                font-size: 24px;
-            }
-            .questionnaire-section h2 {
-                font-size: 18px;
+            
+            .offers-section, .benefits-section, .testimonials-section {
+                padding: 40px 20px;
             }
         }
     </style>
@@ -987,8 +1431,11 @@
             <nav>
                 <ul>
                     <li><a href="#home" class="active">Página Inicial</a></li>
+                    <li><a href="#offers">Ofertas</a></li>
                     <li><a href="#services">Serviços</a></li>
+                    <li><a href="#benefits">Vantagens</a></li>
                     <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
@@ -997,547 +1444,597 @@
 
     <!-- Seção Hero -->
     <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="particles" id="particles"></div>
         <div class="container hero-content">
             <h1>FOTOGRAFIA & FILMAGEM PROFISSIONAL</h1>
-            <p>Transformando momentos em memórias eternas</p>
+            <p>Transformamos momentos especiais em memórias eternas com qualidade cinematográfica</p>
             <div class="hero-btns">
-                <a href="#services" class="hero-btn">Nossos Serviços</a>
-                <a href="#contact" class="hero-btn secondary">Agendar Sessão</a>
+                <a href="#services" class="hero-btn">Conhecer Serviços</a>
+                <a href="#contact" class="hero-btn secondary">Solicitar Orçamento</a>
             </div>
         </div>
     </section>
 
+    <!-- Botão do WhatsApp Flutuante -->
+    <a href="https://wa.me/5562984332509?text=Olá! Gostaria de saber mais sobre seus serviços de fotografia e filmagem." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Botão do Questionário -->
-    <div class="questionnaire-btn" id="openQuestionnaire">
+    <div class="questionnaire-btn" id="openQuestionnaireBtn">
         <i class="fas fa-clipboard-list"></i>
     </div>
 
     <!-- Modal do Questionário -->
     <div class="modal" id="questionnaireModal">
-        <div class="progress-container">
-            <div class="progress-bar" id="formProgress"></div>
-        </div>
         <div class="modal-content">
             <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Questionário para estudo de cliente</h2>
+            <p style="text-align: center; margin-bottom: 20px; font-style: italic;">Um Fotógrafo Amador de Audiovisual</p>
             
-            <h1 class="questionnaire-title">Questionário de Análise de Perfil de Cliente</h1>
-            <p class="questionnaire-subtitle">Um Fotógrafo Amador de Audiovisual</p>
-
-            <form id="strategyForm">
-                <!-- 1. Dados Gerais -->
-                <div class="questionnaire-section">
-                    <h2>1. Dados Gerais</h2>
+            <form id="questionnaireForm">
+                <!-- Seção 1: Dados Gerais -->
+                <div class="question-section active" id="section1">
+                    <h3>1. Dados Gerais</h3>
                     
                     <div class="form-group">
-                        <label for="nome">Nome ou Razão Social:</label>
-                        <input type="text" id="nome" name="nome" class="form-control" required>
+                        <label for="name">Nome ou Razão Social:</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
                     </div>
-
+                    
                     <div class="form-group">
                         <label for="email">E-mail para contato:</label>
                         <input type="email" id="email" name="email" class="form-control" required>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="telefone">Telefone/WhatsApp:</label>
-                        <input type="tel" id="telefone" name="telefone" class="form-control">
+                        <label for="phone">Telefone/WhatsApp:</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="site">Site ou redes sociais (se aplicável):</label>
-                        <input type="text" id="site" name="site" class="form-control">
+                        <label for="social">Site ou redes sociais (se aplicável):</label>
+                        <input type="text" id="social" name="social" class="form-control">
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Como nos conheceu?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="conheceu-instagram" name="conheceu" value="instagram">
-                                <label for="conheceu-instagram">Instagram</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="conheceu-google" name="conheceu" value="google">
-                                <label for="conheceu-google">Google</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="conheceu-indicacao" name="conheceu" value="indicacao">
-                                <label for="conheceu-indicacao">Indicação</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="conheceu-evento" name="conheceu" value="evento">
-                                <label for="conheceu-evento">Evento</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="conheceu-outro" name="conheceu" value="outro">
-                                <label for="conheceu-outro">Outro:</label>
-                                <input type="text" id="conheceu-outro-texto" name="conheceu-outro-texto" class="form-control">
-                            </div>
+                            <input type="radio" id="know_instagram" name="know" value="Instagram">
+                            <label for="know_instagram">Instagram</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="know_google" name="know" value="Google">
+                            <label for="know_google">Google</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="know_indication" name="know" value="Indicação">
+                            <label for="know_indication">Indicação</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="know_event" name="know" value="Evento">
+                            <label for="know_event">Evento</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="know_other" name="know" value="Outro">
+                            <label for="know_other">Outro:</label>
+                            <input type="text" id="know_other_text" name="know_other_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
                 </div>
-
-                <!-- 2. Perfil e Objetivos -->
-                <div class="questionnaire-section">
-                    <h2>2. Perfil e Objetivos</h2>
+                
+                <!-- Seção 2: Perfil e Objetivos -->
+                <div class="question-section" id="section2">
+                    <h3>2. Perfil e Objetivos</h3>
                     
                     <div class="form-group">
                         <label>Você está contratando como:</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="contratante-pf" name="contratante" value="pf">
-                                <label for="contratante-pf">Pessoa física (para uso pessoal)</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="contratante-pj" name="contratante" value="pj">
-                                <label for="contratante-pj">Pessoa jurídica (empresa/marca)</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="contratante-autonomo" name="contratante" value="autonomo">
-                                <label for="contratante-autonomo">Autônomo/freelancer</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="contratante-outro" name="contratante" value="outro">
-                                <label for="contratante-outro">Outro:</label>
-                                <input type="text" id="contratante-outro-texto" name="contratante-outro-texto" class="form-control">
-                            </div>
+                            <input type="radio" id="profile_pf" name="profile" value="Pessoa física (para uso pessoal)">
+                            <label for="profile_pf">Pessoa física (para uso pessoal)</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="profile_pj" name="profile" value="Pessoa jurídica (empresa/marca)">
+                            <label for="profile_pj">Pessoa jurídica (empresa/marca)</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="profile_autonomo" name="profile" value="Autônomo/freelancer">
+                            <label for="profile_autonomo">Autônomo/freelancer</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="profile_outro" name="profile" value="Outro">
+                            <label for="profile_outro">Outro:</label>
+                            <input type="text" id="profile_outro_text" name="profile_outro_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Qual seu principal objetivo com nossos serviços de audiovisual?</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="objetivo-divulgar" name="objetivo" value="divulgar">
-                                <label for="objetivo-divulgar">Divulgar marca/produtos</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="objetivo-engajar" name="objetivo" value="engajar">
-                                <label for="objetivo-engajar">Engajar audiência</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="objetivo-vender" name="objetivo" value="vender">
-                                <label for="objetivo-vender">Vender mais</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="objetivo-registrar" name="objetivo" value="registrar">
-                                <label for="objetivo-registrar">Registrar evento/momento especial</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="objetivo-redes" name="objetivo" value="redes">
-                                <label for="objetivo-redes">Conteúdo para redes sociais</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="objetivo-outro" name="objetivo" value="outro">
-                                <label for="objetivo-outro">Outro:</label>
-                                <input type="text" id="objetivo-outro-texto" name="objetivo-outro-texto" class="form-control">
-                            </div>
+                        <div class="radio-group">
+                            <input type="radio" id="goal_brand" name="goal" value="Divulgar marca/produtos">
+                            <label for="goal_brand">Divulgar marca/produtos</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="goal_engage" name="goal" value="Engajar audiência">
+                            <label for="goal_engage">Engajar audiência</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="goal_sales" name="goal" value="Vender mais">
+                            <label for="goal_sales">Vender mais</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="goal_event" name="goal" value="Registrar evento/momento especial">
+                            <label for="goal_event">Registrar evento/momento especial</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="goal_social" name="goal" value="Conteúdo para redes sociais">
+                            <label for="goal_social">Conteúdo para redes sociais</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="goal_other" name="goal" value="Outro">
+                            <label for="goal_other">Outro:</label>
+                            <input type="text" id="goal_other_text" name="goal_other_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="projeto">Descreva resumidamente seu projeto ou o que espera alcançar:</label>
-                        <textarea id="projeto" name="projeto" class="form-control"></textarea>
-                    </div>
-                </div>
-
-                <!-- 3. Sobre o Empresário/Empreendedor -->
-                <div class="questionnaire-section">
-                    <h2>3. Sobre o Empresário/Empreendedor</h2>
                     
                     <div class="form-group">
-                        <label for="nome-empresario">Nome do empresário/empreendedor:</label>
-                        <input type="text" id="nome-empresario" name="nome-empresario" class="form-control">
+                        <label for="project_description">Descreva resumidamente seu projeto ou o que espera alcançar:</label>
+                        <textarea id="project_description" name="project_description" class="form-control" rows="4"></textarea>
                     </div>
-
+                </div>
+                
+                <!-- Seção 3: Sobre o Empresário/Empreendedor -->
+                <div class="question-section" id="section3">
+                    <h3>3. Sobre o Empresário/Empreendedor</h3>
+                    
                     <div class="form-group">
-                        <label for="trajetoria">Conte um pouco sobre sua trajetória e experiência:</label>
-                        <textarea id="trajetoria" name="trajetoria" class="form-control"></textarea>
+                        <label for="entrepreneur_name">Nome do empresário/empreendedor:</label>
+                        <input type="text" id="entrepreneur_name" name="entrepreneur_name" class="form-control">
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="motivacao">O que te motiva no seu negócio? Qual sua paixão pelo que faz?</label>
-                        <textarea id="motivacao" name="motivacao" class="form-control"></textarea>
+                        <label for="entrepreneur_history">Conte um pouco sobre sua trajetória e experiência:</label>
+                        <textarea id="entrepreneur_history" name="entrepreneur_history" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="orgulho">Qual é seu maior orgulho em relação à sua empresa/trabalho?</label>
-                        <textarea id="orgulho" name="orgulho" class="form-control"></textarea>
+                        <label for="motivation">O que te motiva no seu negócio? Qual sua paixão pelo que faz?</label>
+                        <textarea id="motivation" name="motivation" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
+                    <div class="form-group">
+                        <label for="pride">Qual é seu maior orgulho em relação à sua empresa/trabalho?</label>
+                        <textarea id="pride" name="pride" class="form-control" rows="4"></textarea>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="hobbies">Quais são seus hobbies e interesses fora do trabalho?</label>
-                        <textarea id="hobbies" name="hobbies" class="form-control"></textarea>
+                        <textarea id="hobbies" name="hobbies" class="form-control" rows="4"></textarea>
                     </div>
                 </div>
-
-                <!-- 4. Sobre a Empresa/História -->
-                <div class="questionnaire-section">
-                    <h2>4. Sobre a Empresa/História</h2>
+                
+                <!-- Seção 4: Sobre a Empresa/História -->
+                <div class="question-section" id="section4">
+                    <h3>4. Sobre a Empresa/História</h3>
                     
                     <div class="form-group">
-                        <label for="historia-empresa">Conte a história da sua empresa (como começou, há quanto tempo, momentos marcantes):</label>
-                        <textarea id="historia-empresa" name="historia-empresa" class="form-control"></textarea>
+                        <label for="company_history">Conte a história da sua empresa (como começou, há quanto tempo, momentos marcantes):</label>
+                        <textarea id="company_history" name="company_history" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="missao">Missão, visão e valores da empresa:</label>
-                        <textarea id="missao" name="missao" class="form-control"></textarea>
+                        <label for="mission">Missão, visão e valores da empresa:</label>
+                        <textarea id="mission" name="mission" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="diferencial">O que torna sua empresa única? Qual seu principal diferencial no mercado?</label>
-                        <textarea id="diferencial" name="diferencial" class="form-control"></textarea>
+                        <label for="differential">O que torna sua empresa única? Qual seu principal diferencial no mercado?</label>
+                        <textarea id="differential" name="differential" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="desafios">Quais foram os maiores desafios que superou até aqui?</label>
-                        <textarea id="desafios" name="desafios" class="form-control"></textarea>
+                        <label for="challenges">Quais foram os maiores desafios que superou até aqui?</label>
+                        <textarea id="challenges" name="challenges" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="conquistas">Quais são as principais conquistas da sua empresa?</label>
-                        <textarea id="conquistas" name="conquistas" class="form-control"></textarea>
+                        <label for="achievements">Quais são as principais conquistas da sua empresa?</label>
+                        <textarea id="achievements" name="achievements" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="funcionarios">Quantos funcionários tem sua empresa?</label>
-                        <input type="number" id="funcionarios" name="funcionarios" class="form-control" min="0">
+                        <label for="employees">Quantos funcionários tem sua empresa?</label>
+                        <input type="text" id="employees" name="employees" class="form-control">
                     </div>
                 </div>
-
-                <!-- 5. Região e Dia a Dia -->
-                <div class="questionnaire-section">
-                    <h2>5. Região e Dia a Dia</h2>
+                
+                <!-- Seção 5: Região e Dia a Dia -->
+                <div class="question-section" id="section5">
+                    <h3>5. Região e Dia a Dia</h3>
                     
                     <div class="form-group">
-                        <label for="regiao">Em que região/cidade sua empresa está localizada?</label>
-                        <input type="text" id="regiao" name="regiao" class="form-control">
+                        <label for="location">Em que região/cidade sua empresa está localizada?</label>
+                        <input type="text" id="location" name="location" class="form-control">
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="influencia-regiao">Como a região influencia seu negócio? Há características locais importantes?</label>
-                        <textarea id="influencia-regiao" name="influencia-regiao" class="form-control"></textarea>
+                        <label for="region_influence">Como a região influencia seu negócio? Há características locais importantes?</label>
+                        <textarea id="region_influence" name="region_influence" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="dia-a-dia">Descreva o dia a dia da sua empresa (rotina, ambiente, cultura):</label>
-                        <textarea id="dia-a-dia" name="dia-a-dia" class="form-control"></textarea>
+                        <label for="daily_routine">Descreva o dia a dia da sua empresa (rotina, ambiente, cultura):</label>
+                        <textarea id="daily_routine" name="daily_routine" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="comunidade">Como sua empresa se relaciona com a comunidade local?</label>
-                        <textarea id="comunidade" name="comunidade" class="form-control"></textarea>
+                        <label for="community">Como sua empresa se relaciona com a comunidade local?</label>
+                        <textarea id="community" name="community" class="form-control" rows="4"></textarea>
                     </div>
                 </div>
-
-                <!-- 6. Identidade Visual e Estilo -->
-                <div class="questionnaire-section">
-                    <h2>6. Identidade Visual e Estilo</h2>
+                
+                <!-- Seção 6: Identidade Visual e Estilo -->
+                <div class="question-section" id="section6">
+                    <h3>6. Identidade Visual e Estilo</h3>
                     
                     <div class="form-group">
-                        <label for="paleta">Sua empresa/voz tem uma paleta de cores definida? Se sim, quais são?</label>
-                        <textarea id="paleta" name="paleta" class="form-control"></textarea>
+                        <label for="colors">Sua empresa/voz tem uma paleta de cores definida? Se sim, quais são?</label>
+                        <input type="text" id="colors" name="colors" class="form-control">
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Como você descreveria seu estilo visual?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="estilo-clean" name="estilo" value="clean">
-                                <label for="estilo-clean">Clean/minimalista</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="estilo-moderno" name="estilo" value="moderno">
-                                <label for="estilo-moderno">Moderno/tech</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="estilo-classico" name="estilo" value="classico">
-                                <label for="estilo-classico">Clássico/tradicional</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="estilo-descolado" name="estilo" value="descolado">
-                                <label for="estilo-descolado">Descolado/alternativo</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="estilo-outro" name="estilo" value="outro">
-                                <label for="estilo-outro">Outro:</label>
-                                <input type="text" id="estilo-outro-texto" name="estilo-outro-texto" class="form-control">
-                            </div>
+                            <input type="radio" id="style_clean" name="style" value="Clean/minimalista">
+                            <label for="style_clean">Clean/minimalista</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="style_modern" name="style" value="Moderno/tech">
+                            <label for="style_modern">Moderno/tech</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="style_classic" name="style" value="Clássico/tradicional">
+                            <label for="style_classic">Clássico/tradicional</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="style_casual" name="style" value="Descolado/alternativo">
+                            <label for="style_casual">Descolado/alternativo</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="style_other" name="style" value="Outro">
+                            <label for="style_other">Outro:</label>
+                            <input type="text" id="style_other_text" name="style_other_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Você já tem um manual de marca ou diretrizes visuais?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="manual-sim" name="manual" value="sim">
-                                <label for="manual-sim">Sim</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="manual-nao" name="manual" value="nao">
-                                <label for="manual-nao">Não</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="manual-desenvolvimento" name="manual" value="desenvolvimento">
-                                <label for="manual-desenvolvimento">Em desenvolvimento</label>
-                            </div>
+                            <input type="radio" id="brand_manual_yes" name="brand_manual" value="Sim">
+                            <label for="brand_manual_yes">Sim</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="brand_manual_no" name="brand_manual" value="Não">
+                            <label for="brand_manual_no">Não</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="brand_manual_dev" name="brand_manual" value="Em desenvolvimento">
+                            <label for="brand_manual_dev">Em desenvolvimento</label>
                         </div>
                     </div>
                 </div>
-
-                <!-- 7. Comunicação e Tom -->
-                <div class="questionnaire-section">
-                    <h2>7. Comunicação e Tom</h2>
+                
+                <!-- Seção 7: Comunicação e Tom -->
+                <div class="question-section" id="section7">
+                    <h3>7. Comunicação e Tom</h3>
                     
                     <div class="form-group">
                         <label>Como você gostaria de ser percebido pelo seu público?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="percepcao-divertido" name="percepcao" value="divertido">
-                                <label for="percepcao-divertido">Divertido/descontraído</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="percepcao-inspirador" name="percepcao" value="inspirador">
-                                <label for="percepcao-inspirador">Inspirador/motivacional</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="percepcao-tecnico" name="percepcao" value="tecnico">
-                                <label for="percepcao-tecnico">Técnico/informativo</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="percepcao-sofisticado" name="percepcao" value="sofisticado">
-                                <label for="percepcao-sofisticado">Sofisticado/exclusivo</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="percepcao-outro" name="percepcao" value="outro">
-                                <label for="percepcao-outro">Outro:</label>
-                                <input type="text" id="percepcao-outro-texto" name="percepcao-outro-texto" class="form-control">
-                            </div>
+                            <input type="radio" id="perception_fun" name="perception" value="Divertido/descontraído">
+                            <label for="perception_fun">Divertido/descontraído</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="perception_inspiring" name="perception" value="Inspirador/motivacional">
+                            <label for="perception_inspiring">Inspirador/motivacional</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="perception_technical" name="perception" value="Técnico/informativo">
+                            <label for="perception_technical">Técnico/informativo</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="perception_sophisticated" name="perception" value="Sofisticado/exclusivo">
+                            <label for="perception_sophisticated">Sofisticado/exclusivo</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="perception_other" name="perception" value="Outro">
+                            <label for="perception_other">Outro:</label>
+                            <input type="text" id="perception_other_text" name="perception_other_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         <label for="humor">Você utiliza humor em sua comunicação? Se sim, que tipo?</label>
-                        <textarea id="humor" name="humor" class="form-control"></textarea>
+                        <textarea id="humor" name="humor" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="girias">Há algum termo, gíria ou expressão que você costuma usar?</label>
-                        <textarea id="girias" name="girias" class="form-control"></textarea>
+                        <label for="expressions">Há algum termo, gíria ou expressão que você costuma usar?</label>
+                        <textarea id="expressions" name="expressions" class="form-control" rows="4"></textarea>
                     </div>
                 </div>
-
-                <!-- 8. Preferências de Conteúdo e Referências -->
-                <div class="questionnaire-section">
-                    <h2>8. Preferências de Conteúdo e Referências</h2>
+                
+                <!-- Seção 8: Preferências de Conteúdo e Referências -->
+                <div class="question-section" id="section8">
+                    <h3>8. Preferências de Conteúdo e Referências</h3>
                     
                     <div class="form-group">
                         <label>Quais redes sociais você mais utiliza?</label>
                         <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="redes-instagram" name="redes" value="instagram">
-                                <label for="redes-instagram">Instagram</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="redes-tiktok" name="redes" value="tiktok">
-                                <label for="redes-tiktok">TikTok</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="redes-linkedin" name="redes" value="linkedin">
-                                <label for="redes-linkedin">LinkedIn</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="redes-youtube" name="redes" value="youtube">
-                                <label for="redes-youtube">YouTube</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="redes-facebook" name="redes" value="facebook">
-                                <label for="redes-facebook">Facebook</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="redes-outro" name="redes" value="outro">
-                                <label for="redes-outro">Outro:</label>
-                                <input type="text" id="redes-outro-texto" name="redes-outro-texto" class="form-control">
-                            </div>
+                            <input type="checkbox" id="social_instagram" name="social_media" value="Instagram">
+                            <label for="social_instagram">Instagram</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="social_tiktok" name="social_media" value="TikTok">
+                            <label for="social_tiktok">TikTok</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="social_linkedin" name="social_media" value="LinkedIn">
+                            <label for="social_linkedin">LinkedIn</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="social_youtube" name="social_media" value="YouTube">
+                            <label for="social_youtube">YouTube</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="social_facebook" name="social_media" value="Facebook">
+                            <label for="social_facebook">Facebook</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="social_other" name="social_media" value="Outro">
+                            <label for="social_other">Outro:</label>
+                            <input type="text" id="social_other_text" name="social_other_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Que tipo de conteúdo você mais consome ou produz?</label>
                         <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="conteudo-tutoriais" name="conteudo" value="tutoriais">
-                                <label for="conteudo-tutoriais">Tutoriais</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="conteudo-bastidores" name="conteudo" value="bastidores">
-                                <label for="conteudo-bastidores">Bastidores</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="conteudo-depoimentos" name="conteudo" value="depoimentos">
-                                <label for="conteudo-depoimentos">Depoimentos</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="conteudo-entrevistas" name="conteudo" value="entrevistas">
-                                <label for="conteudo-entrevistas">Entrevistas</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="conteudo-entretenimento" name="conteudo" value="entretenimento">
-                                <label for="conteudo-entretenimento">Entretenimento</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="conteudo-outro" name="conteudo" value="outro">
-                                <label for="conteudo-outro">Outro:</label>
-                                <input type="text" id="conteudo-outro-texto" name="conteudo-outro-texto" class="form-control">
-                            </div>
+                            <input type="checkbox" id="content_tutorials" name="content_type" value="Tutoriais">
+                            <label for="content_tutorials">Tutoriais</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="content_behind" name="content_type" value="Bastidores">
+                            <label for="content_behind">Bastidores</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="content_testimonials" name="content_type" value="Depoimentos">
+                            <label for="content_testimonials">Depoimentos</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="content_interviews" name="content_type" value="Entrevistas">
+                            <label for="content_interviews">Entrevistas</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="content_entertainment" name="content_type" value="Entretenimento">
+                            <label for="content_entertainment">Entretenimento</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="content_other" name="content_type" value="Outro">
+                            <label for="content_other">Outro:</label>
+                            <input type="text" id="content_other_text" name="content_other_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="referencias">Cite 1 a 3 marcas ou perfis que você admira visualmente ou em comunicação:</label>
-                        <textarea id="referencias" name="referencias" class="form-control"></textarea>
+                        <label for="references">Cite 1 a 3 marcas ou perfis que você admira visualmente ou em comunicação:</label>
+                        <textarea id="references" name="references" class="form-control" rows="4"></textarea>
                     </div>
                 </div>
-
-                <!-- 9. Estilo Musical -->
-                <div class="questionnaire-section">
-                    <h2>9. Estilo Musical (se aplicável para vídeos)</h2>
+                
+                <!-- Seção 9: Estilo Musical -->
+                <div class="question-section" id="section9">
+                    <h3>9. Estilo Musical (se aplicável para vídeos)</h3>
                     
                     <div class="form-group">
                         <label>Você tem preferência por estilo musical nos vídeos?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="musica-sim" name="musica" value="sim">
-                                <label for="musica-sim">Sim</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="musica-nao" name="musica" value="nao">
-                                <label for="musica-nao">Não</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="musica-criterio" name="musica" value="criterio">
-                                <label for="musica-criterio">Deixar a critério da produção</label>
-                            </div>
+                            <input type="radio" id="music_yes" name="music_preference" value="Sim">
+                            <label for="music_yes">Sim</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="music_no" name="music_preference" value="Não">
+                            <label for="music_no">Não</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="music_choice" name="music_preference" value="Deixar a critério da produção">
+                            <label for="music_choice">Deixar a critério da produção</label>
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="estilos-musicais">Quais estilos ou bandas/artistas você gosta?</label>
-                        <textarea id="estilos-musicais" name="estilos-musicais" class="form-control"></textarea>
+                        <label for="music_styles">Quais estilos ou bandas/artistas você gosta?</label>
+                        <textarea id="music_styles" name="music_styles" class="form-control" rows="4"></textarea>
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Prefere músicas com ou sem vocal?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="vocal-sim" name="vocal" value="sim">
-                                <label for="vocal-sim">Com vocal</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="vocal-nao" name="vocal" value="nao">
-                                <label for="vocal-nao">Instrumental</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="vocal-ambos" name="vocal" value="ambos">
-                                <label for="vocal-ambos">Ambos</label>
-                            </div>
+                            <input type="radio" id="vocal_yes" name="vocal" value="Com vocal">
+                            <label for="vocal_yes">Com vocal</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="vocal_no" name="vocal" value="Instrumental">
+                            <label for="vocal_no">Instrumental</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="vocal_both" name="vocal" value="Ambos">
+                            <label for="vocal_both">Ambos</label>
                         </div>
                     </div>
                 </div>
-
-                <!-- 10. Expectativas com Nosso Trabalho -->
-                <div class="questionnaire-section">
-                    <h2>10. Expectativas com Nosso Trabalho</h2>
+                
+                <!-- Seção 10: Expectativas com Nosso Trabalho -->
+                <div class="question-section" id="section10">
+                    <h3>10. Expectativas com Nosso Trabalho</h3>
                     
                     <div class="form-group">
                         <label>O que mais valoriza em um serviço de audiovisual?</label>
                         <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="valor-criatividade" name="valor" value="criatividade">
-                                <label for="valor-criatividade">Criatividade</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="valor-rapidez" name="valor" value="rapidez">
-                                <label for="valor-rapidez">Rapidez</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="valor-qualidade" name="valor" value="qualidade">
-                                <label for="valor-qualidade">Qualidade técnica</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="valor-atendimento" name="valor" value="atendimento">
-                                <label for="valor-atendimento">Atendimento personalizado</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="valor-preco" name="valor" value="preco">
-                                <label for="valor-preco">Preço</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="valor-outro" name="valor" value="outro">
-                                <label for="valor-outro">Outro:</label>
-                                <input type="text" id="valor-outro-texto" name="valor-outro-texto" class="form-control">
-                            </div>
+                            <input type="checkbox" id="value_creativity" name="values" value="Criatividade">
+                            <label for="value_creativity">Criatividade</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="value_speed" name="values" value="Rapidez">
+                            <label for="value_speed">Rapidez</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="value_quality" name="values" value="Qualidade técnica">
+                            <label for="value_quality">Qualidade técnica</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="value_service" name="values" value="Atendimento personalizado">
+                            <label for="value_service">Atendimento personalizado</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="value_price" name="values" value="Preço">
+                            <label for="value_price">Preço</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="value_other" name="values" value="Outro">
+                            <label for="value_other">Outro:</label>
+                            <input type="text" id="value_other_text" name="value_other_text" class="form-control" style="display:inline; width:auto;">
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="nao-gostaria">Há algo que você NÃO gostaria de ver no seu projeto?</label>
-                        <textarea id="nao-gostaria" name="nao-gostaria" class="form-control"></textarea>
+                        <label for="dislikes">Há algo que você NÃO gostaria de ver no seu projeto?</label>
+                        <textarea id="dislikes" name="dislikes" class="form-control" rows="4"></textarea>
                     </div>
                 </div>
-
-                <!-- 11. Informações Complementares -->
-                <div class="questionnaire-section">
-                    <h2>11. Informações Complementares</h2>
+                
+                <!-- Seção 11: Informações Complementares -->
+                <div class="question-section" id="section11">
+                    <h3>11. Informações Complementares</h3>
                     
                     <div class="form-group">
                         <label>Possui algum material de referência (fotos, vídeos, moodboards) para compartilhar?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="referencia-sim" name="referencia" value="sim">
-                                <label for "referencia-sim">Sim (pode enviar por e-mail/WhatsApp)</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="referencia-nao" name="referencia" value="nao">
-                                <label for="referencia-nao">Não</label>
-                            </div>
+                            <input type="radio" id="material_yes" name="material" value="Sim (pode enviar por e-mail/WhatsApp)">
+                            <label for="material_yes">Sim (pode enviar por e-mail/WhatsApp)</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="material_no" name="material" value="Não">
+                            <label for="material_no">Não</label>
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
                         <label>Deseja receber sugestões ou um plano estratégico baseado nas suas respostas?</label>
                         <div class="radio-group">
-                            <div class="radio-item">
-                                <input type="radio" id="estrategia-sim" name="estrategia" value="sim">
-                                <label for="estrategia-sim">Sim</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="estrategia-nao" name="estrategia" value="nao">
-                                <label for="estrategia-nao">Não</label>
-                            </div>
+                            <input type="radio" id="suggestions_yes" name="suggestions" value="Sim">
+                            <label for="suggestions_yes">Sim</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="suggestions_no" name="suggestions" value="Não">
+                            <label for="suggestions_no">Não</label>
                         </div>
                     </div>
                 </div>
-
-                <div class="questionnaire-footer">
-                    <p><strong>Muito obrigado por dedicar seu tempo a este questionário!</strong></p>
-                    <p>Com base nele, poderemos criar estratégias e propostas muito mais alinhadas ao que você e seu público precisam.</p>
-                    <p><em>Atenciosamente,<br>Equipe Um Fotógrafo Amador de Audiovisual</em></p>
+                
+                <div class="modal-buttons">
+                    <button type="button" class="modal-btn prev" id="prevBtn" style="display: none;">Anterior</button>
+                    <button type="button" class="modal-btn next" id="nextBtn">Próxima</button>
+                    <button type="submit" class="modal-btn submit" id="submitBtn" style="display: none;">Enviar Questionário</button>
                 </div>
-
-                <button type="submit" class="submit-btn">Enviar questionário</button>
             </form>
+            
+            <div style="margin-top: 30px; text-align: center; font-style: italic; color: #ccc;">
+                <p>Muito obrigado por dedicar seu tempo a este questionário!</p>
+                <p>Com base nele, poderemos criar estratégias e propostas muito mais alinhadas ao que você e seu público precisam.</p>
+                <p style="margin-top: 20px;">Atenciosamente,<br>Equipe Um Fotógrafo Amador de Audiovisual</p>
+            </div>
         </div>
     </div>
+
+    <!-- Ofertas Especiais -->
+    <section id="offers" class="offers-section">
+        <div class="container">
+            <h2 class="section-title">Pacotes de Vídeos para Redes Sociais</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #ccc;">Conteúdo estratégico com filmagem LOG 4K e pós-produção padrão cinema</p>
+            
+            <div class="offers-container">
+                <div class="offer-card">
+                    <div class="offer-badge">POPULAR</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Pacote Bronze</h3>
+                    <p>Ideal para quem está começando nas redes sociais</p>
+                    <div class="offer-price">R$ 400</div>
+                    <ul class="offer-features">
+                        <li><i class="fas fa-check"></i> 1 vídeo (15-60s)</li>
+                        <li><i class="fas fa-check"></i> Filmagem em LOG 4K</li>
+                        <li><i class="fas fa-check"></i> Pós-produção padrão cinema</li>
+                        <li><i class="fas fa-check"></i> Entrega em 5 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Bronze de R$ 400" class="hero-btn" target="_blank" style="padding: 12px 30px; font-size: 1rem;">Quero Este Pacote</a>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-badge">MAIS VENDIDO</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Pacote Prata</h3>
+                    <p>Para quem quer consistência e crescimento</p>
+                    <div class="offer-price">R$ 900</div>
+                    <ul class="offer-features">
+                        <li><i class="fas fa-check"></i> 3 vídeos (15-60s cada)</li>
+                        <li><i class="fas fa-check"></i> Filmagem em LOG 4K</li>
+                        <li><i class="fas fa-check"></i> Pós-produção padrão cinema</li>
+                        <li><i class="fas fa-check"></i> Entrega em 7 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Prata de R$ 900" class="hero-btn" target="_blank" style="padding: 12px 30px; font-size: 1rem;">Quero Este Pacote</a>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-badge">PREMIUM</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Pacote Ouro</h3>
+                    <p>Estratégia completa para resultados extraordinários</p>
+                    <div class="offer-price">R$ 1.500</div>
+                    <ul class="offer-features">
+                        <li><i class="fas fa-check"></i> 6 vídeos padrão TikTok/Reels</li>
+                        <li><i class="fas fa-check"></i> Animações personalizadas</li>
+                        <li><i class="fas fa-check"></i> Filmagem em LOG 4K</li>
+                        <li><i class="fas fa-check"></i> Pós-produção padrão cinema</li>
+                        <li><i class="fas fa-check"></i> Entrega em 10 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Ouro de R$ 1.500" class="hero-btn" target="_blank" style="padding: 12px 30px; font-size: 1rem;">Quero Este Pacote</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: #ccc; font-size: 1rem;">💡 <strong>Diferencial Exclusivo:</strong> Todos os pacotes incluem filmagem em LOG 4K e pós-produção padrão cinema!</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Serviços -->
     <section id="services" class="services-section">
         <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
+            <h2 class="section-title">Nossos Serviços Completos</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #ccc;">Confira nossa tabela completa de serviços e preços</p>
+            
             <div class="service-tabs">
                 <button class="service-tab active" data-service="photography">Fotografia</button>
                 <button class="service-tab" data-service="videography">Filmagem</button>
-                <button class="service-tab" data-service="drone">Filmagem com Drone</button>
+                <button class="service-tab" data-service="drone">Drone</button>
             </div>
             
             <div class="service-content active" id="photography-content">
@@ -1549,7 +2046,7 @@
                                 <th>PACOTE</th>
                                 <th>DESCRIÇÃO</th>
                                 <th>COBERTURA</th>
-                                <th>INVESTIMENTO (R$)</th>
+                                <th>INVESTIMENTO</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1557,71 +2054,70 @@
                                 <td><span class="service-icon">E</span> EVENTOS</td>
                                 <td>Básico</td>
                                 <td class="service-description">Cobertura essencial com foco nos momentos principais</td>
-                                <td>100 fotos editadas</td>
-                                <td class="highlight">1.200</td>
+                                <td>2h / 50 fotos editadas</td>
+                                <td class="highlight">R$ 500</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Standard</td>
                                 <td class="service-description">Cobertura completa com mais detalhes e momentos especiais</td>
-                                <td>250 fotos + 20 retoques</td>
-                                <td class="highlight">1.800</td>
+                                <td>4h / 120 fotos + 15 retoques</td>
+                                <td class="highlight">R$ 850</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Premium</td>
-                                <td class="service-description">Cobertura premium com todos os momentos, ensaios e making of</td>
-                                <td>400 fotos + 40 retoques</td>
-                                <td class="highlight">2.500</td>
+                                <td class="service-description">Cobertura premium com todos os momentos e making of</td>
+                                <td>6h / 200 fotos + 25 retoques</td>
+                                <td class="highlight">R$ 1.350</td>
                             </tr>
                             <tr>
                                 <td><span class="service-icon">P</span> PRODUTOS</td>
                                 <td>Pequena Série</td>
                                 <td class="service-description">Fotografia profissional para catálogos e e-commerce</td>
-                                <td>15 produtos (3 fotos cada)</td>
-                                <td class="highlight">800</td>
+                                <td>10 produtos (3 fotos cada)</td>
+                                <td class="highlight">R$ 350</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Grande Série</td>
                                 <td class="service-description">Ideal para lojas virtuais com amplo catálogo</td>
-                                <td>40 produtos (4 fotos cada)</td>
-                                <td class="highlight">2.200</td>
+                                <td>25 produtos (4 fotos cada)</td>
+                                <td class="highlight">R$ 700</td>
                             </tr>
                             <tr>
                                 <td><span class="service-icon">R</span> RETRATOS</td>
                                 <td>Express</td>
                                 <td class="service-description">Sessão rápida com foco em poses naturais</td>
-                                <td>15 fotos em locação externa</td>
-                                <td class="highlight">450</td>
+                                <td>1h / 15 fotos em locação externa</td>
+                                <td class="highlight">R$ 180</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Completo</td>
                                 <td class="service-description">Sessão completa com diferentes cenários e looks</td>
-                                <td>30 fotos + 5 poses</td>
-                                <td class="highlight">750</td>
+                                <td>2h / 30 fotos + 5 poses</td>
+                                <td class="highlight">R$ 300</td>
                             </tr>
                             <tr>
                                 <td><span class="service-icon">G</span> GASTRONOMIA</td>
                                 <td>Menu Básico</td>
                                 <td class="service-description">Fotografia gastronômica para cardápios e redes sociais</td>
-                                <td>10 pratos (2 ângulos cada)</td>
-                                <td class="highlight">600</td>
+                                <td>8 pratos (2 ângulos cada)</td>
+                                <td class="highlight">R$ 400</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="notes">
-                    <h3>Observações para Fotografia:</h3>
+                    <h3>💰 Condições Especiais para Jaraguá e Região:</h3>
                     <ul>
-                        <li>Preços válidos para dias úteis (segunda a sexta)</li>
-                        <li>Finais de semana e feriados: acréscimo de 20%</li>
-                        <li>Deslocamento superior a 30km: R$ 1,50/km</li>
-                        <li>Retoques adicionais: R$ 15/foto</li>
-                        <li>Prazo de entrega: 5-10 dias úteis após a sessão</li>
-                        <li>Pagamento: 50% no agendamento, 50% na entrega</li>
-                        <li>Os preços podem mudar devido à dinâmica do trabalho solicitado.</li>
+                        <li><strong>Primeiros 10 clientes:</strong> 20% de desconto em qualquer pacote</li>
+                        <li><strong>Indicação:</strong> Ganhe R$ 50 de desconto na próxima sessão</li>
+                        <li><strong>Pacotes combinados:</strong> Foto + Vídeo com 15% off</li>
+                        <li>Pagamento facilitado: 50% no agendamento + 50% na entrega</li>
+                        <li>Deslocamento grátis até 20km de Jaraguá</li>
+                        <li>Material de cortesia: 5 fotos extras em todas as sessões</li>
                     </ul>
                 </div>
             </div>
@@ -1635,92 +2131,91 @@
                                 <th>PACOTE</th>
                                 <th>DESCRIÇÃO</th>
                                 <th>COBERTURA</th>
-                                <th>INVESTIMENTO (R$)</th>
+                                <th>INVESTIMENTO</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><span class="service-icon">E</span> EVENTOS</td>
                                 <td>Básico</td>
-                                <td class="service-description">Cobertura com 1 câmera, foco nos momentos principais</td>
+                                <td class="service-description">Filmagem em LOG 4K + áudio profissional + edição criativa</td>
                                 <td>4 horas / Vídeo de 3-5 min</td>
-                                <td class="highlight">1.500</td>
+                                <td class="highlight">R$ 1.500</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Standard</td>
-                                <td class="service-description">Cobertura com 1 câmera e edição criativa (mais câmeras sob consulta)</td>
+                                <td class="service-description">Filmagem multicâmera LOG 4K + pós-produção padrão cinema</td>
                                 <td>6 horas / Vídeo de 5-8 min</td>
-                                <td class="highlight">2.200</td>
+                                <td class="highlight">R$ 2.200</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Premium</td>
-                                <td class="service-description">Cobertura completa com making of (drone sob consulta)</td>
+                                <td class="service-description">Filmagem premium LOG 4K + drone + making of + color grading profissional</td>
                                 <td>8 horas / Vídeo principal + teaser</td>
-                                <td class="highlight">3.000</td>
+                                <td class="highlight">R$ 3.000</td>
                             </tr>
                             <tr>
-                                <td><span class="service-icon">C</span> COMERCIAL</td>
+                                <td><span class="service-icon">C</span> COMERCIAIS</td>
                                 <td>Institucional</td>
-                                <td class="service-description">Vídeo para apresentar sua empresa com roteiro personalizado</td>
-                                <td>Vídeo de 1 min</td>
-                                <td class="highlight">1.800</td>
+                                <td class="service-description"><span class="premium-feature">ESTRATÉGIA COMPLETA:</span> Estudo de marca + roteirização + direção de cena + filmagem LOG 4K</td>
+                                <td>Vídeo de 1-2 min + estratégia</td>
+                                <td class="highlight">R$ 1.800</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Produtos</td>
-                                <td class="service-description">Vídeos promocionais para e-commerce e redes sociais</td>
+                                <td class="service-description">Filmagem LOG 4K + motion graphics + edição persuasiva</td>
                                 <td>Vídeo de 30-60s por produto</td>
-                                <td class="highlight">1.000</td>
+                                <td class="highlight">R$ 1.000</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Campanha</td>
-                                <td class="service-description">Pacote completo para campanhas publicitárias</td>
-                                <td>3 vídeos de 15-90s + roteirização</td>
-                                <td class="highlight">3.800</td>
+                                <td class="service-description"><span class="premium-feature">MARKETING COMPLETO:</span> Posicionamento + neuromarketing + análise concorrência + filmagem cinema</td>
+                                <td>3 vídeos + estratégia completa</td>
+                                <td class="highlight">R$ 3.800</td>
                             </tr>
                             <tr>
                                 <td><span class="service-icon">R</span> REDES SOCIAIS</td>
                                 <td>Bronze</td>
-                                <td class="service-description">Conteúdo otimizado para Reels, TikTok e Stories</td>
+                                <td class="service-description">Conteúdo otimizado para Reels/TikTok + filmagem LOG 4K + edição dinâmica</td>
                                 <td>1 vídeo (15-60s)</td>
-                                <td class="highlight">500</td>
+                                <td class="highlight">R$ 400</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Prata</td>
-                                <td class="service-description">Pacote para manter suas redes engajadas</td>
-                                <td>3 vídeos + edição criativa</td>
-                                <td class="highlight">900</td>
+                                <td class="service-description">Pacote estratégico + filmagem LOG 4K + motion graphics + edição criativa</td>
+                                <td>3 vídeos + análise de performance</td>
+                                <td class="highlight">R$ 900</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Ouro</td>
-                                <td class="service-description">Conteúdo premium com animações e efeitos especiais</td>
-                                <td>6 vídeos de 15-90s + animações</td>
-                                <td class="highlight">1.500</td>
+                                <td class="service-description"><span class="premium-feature">ESTRATÉGIA AVANÇADA:</span> Neuromarketing + psicologia persuasiva + filmagem cinema + animações</td>
+                                <td>6 vídeos padrão TikTok/Reels + animações</td>
+                                <td class="highlight">R$ 1.500</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="notes">
-                    <h3>Observações para Filmagem:</h3>
+                    <h3>🎬 Diferenciais Exclusivos da Nossa Filmagem:</h3>
                     <ul>
-                        <li>Preços válidos para dias úteis (segunda a sexta)</li>
-                        <li>Finais de semana e feriados: acréscimo de 25%</li>
-                        <li>Deslocamento superior a 30km: R$ 2,00/km</li>
-                        <li>Edições adicionais: R$ 150/hora</li>
-                        <li>Locução profissional: R$ 100/vídeo</li>
-                        <li>Prazo de entrega: 7-15 dias úteis após coleta</li>
-                        <li>Pagamento: 50% no agendamento, 50% na entrega</li>
-                        <li>Os preços podem mudar devido à dinâmica do trabalho solicitado.</li>
-                        <li>Uso de câmeras adicionais e equipamentos especiais sob consulta</li>
+                        <li><strong>Filmagem em LOG 4K:</strong> Máxima qualidade de imagem e flexibilidade na pós-produção</li>
+                        <li><strong>Padrão Cinema:</strong> Color grading profissional e tratamento de imagem cinema</li>
+                        <li><strong>Estratégia de Marketing Incluída:</strong> Posicionamento de marca, estudo de público e concorrência</li>
+                        <li><strong>Neuromarketing Aplicado:</strong> Técnicas de persuasão psicológica em todos os vídeos</li>
+                        <li><strong>Roteirização Estratégica:</strong> Conteúdo desenvolvido para engajar e converter</li>
+                        <li><strong>Equipamento Profissional:</strong> Câmeras cinema, áudio dedicado e iluminação profissional</li>
+                        <li><strong>Consultoria Incluída:</strong> Análise completa do seu negócio antes de cada projeto</li>
                     </ul>
                 </div>
             </div>
             
+            <!-- Serviços de Drone com CONSULTA -->
             <div class="service-content" id="drone-content">
                 <div class="table-container">
                     <table>
@@ -1739,238 +2234,325 @@
                                 <td>Imobiliária</td>
                                 <td class="service-description">Imagens aéreas de propriedades e terrenos</td>
                                 <td>Fotos e vídeos aéreos</td>
-                                <td class="highlight">Sob consulta</td>
+                                <td class="consult">CONSULTA</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>Eventos</td>
-                                <td class="service-description">Cenas panorâmicas para mostrar a grandiosidade do evento</td>
+                                <td class="service-description">Cenas panorâmicas para mostrar a grandiosidade</td>
                                 <td>Vídeos e fotos aéreas</td>
-                                <td class="highlight">Sob consulta</td>
+                                <td class="consult">CONSULTA</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Publicidade</td>
-                                <td class="service-description">Tomadas aéreas criativas para comerciais</td>
-                                <td>Vídeos em alta resolução</td>
-                                <td class="highlight">Sob consulta</td>
-                            </tr>
-                            <tr>
-                                <td><span class="service-icon">M</span> MAPEAMENTO</td>
-                                <td>Construção</td>
-                                <td class="service-description">Monitoramento de obras e progresso de construções</td>
-                                <td>Relatórios com imagens comparativas</td>
-                                <td class="highlight">Sob consulta</td>
+                                <td>Propaganda</td>
+                                <td class="service-description">Filmagem aérea para campanhas publicitárias</td>
+                                <td>Vídeos aéreos profissionais</td>
+                                <td class="consult">CONSULTA</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Agricultura</td>
-                                <td class="service-description">Monitoramento de plantações e análise de solo</td>
-                                <td>Imagens multiespectrais</td>
-                                <td class="highlight">Sob consulta</td>
-                            </tr>
-                            <tr>
-                                <td><span class="service-icon">I</span> INSPEÇÃO</td>
-                                <td>Estrutural</td>
-                                <td class="service-description">Inspeção de telhados, torres e estruturas altas</td>
-                                <td>Relatório com imagens detalhadas</td>
-                                <td class="highlight">Sob consulta</td>
+                                <td>Inspeção</td>
+                                <td class="service-description">Inspeção estrutural e mapeamento</td>
+                                <td>Relatório com imagens aéreas</td>
+                                <td class="consult">CONSULTA</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="notes">
-                    <h3>Observações para Filmagem com Drone:</h3>
+                    <h3>🚁 Serviços de Drone Personalizados:</h3>
                     <ul>
-                        <li>Todos os serviços com drone são realizados por operador certificado pela ANAC</li>
-                        <li>Orçamentos personalizados de acordo com as necessidades do projeto</li>
-                        <li>Condições climáticas podem afetar o agendamento</li>
-                        <li>Necessária autorização prévia para voos em áreas restritas</li>
-                        <li>Entre em contato para discutir seu projeto específico</li>
+                        <li><strong>Orçamento personalizado:</strong> Cada projeto de drone é único e avaliado individualmente</li>
+                        <li><strong>Fatores que influenciam o valor:</strong> Localização, complexidade, duração e finalidade</li>
+                        <li><strong>Equipamento de ponta:</strong> Drones com câmeras 4K e sistemas de estabilização</li>
+                        <li><strong>Entrega profissional:</strong> Material editado e pronto para uso</li>
+                        <li><strong>Consultoria gratuita:</strong> Análise prévia sem custo para seu projeto</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfólio -->
-    <section id="portfolio" class="services-section">
+    <!-- Seção Parallax -->
+    <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1519996529932-47c8dd291b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <div class="parallax-overlay"></div>
+        <div class="container parallax-content">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="color: var(--primary); font-size: 3rem; margin-bottom: 30px;">QUALIDADE CINEMA EM CADA PROJETO</h2>
+                <p style="font-size: 1.5rem; color: var(--light); margin-bottom: 40px;">Tecnologia de ponta, criatividade e estratégia para elevar sua marca</p>
+                <a href="#contact" class="hero-btn" style="font-size: 1.2rem; padding: 15px 40px;">Fazer um Orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Benefícios -->
+    <section id="benefits" class="benefits-section">
         <div class="container">
-            <h2 class="section-title">Portfólio</h2>
-            <div class="service-tabs">
-                <button class="service-tab active" data-gallery="photo-gallery">Fotografia</button>
-                <button class="service-tab" data-gallery="video-gallery">Filmagem</button>
-                <button class="service-tab" data-gallery="drone-gallery">Drone</button>
-            </div>
-            
-            <div class="gallery active" id="photo-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Casamento" loading="lazy">
-                    <div class="gallery-caption">Casamento Premium</div>
+            <h2 class="section-title">Por Que Escolher Nossos Serviços?</h2>
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Filmagem LOG 4K</h3>
+                    <p>Qualidade cinema com filmagem em LOG 4K para máxima flexibilidade na pós-produção e resultados profissionais impressionantes.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Produtos" loading="lazy">
-                    <div class="gallery-caption">Fotografia de Produtos</div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Estratégia de Marketing</h3>
+                    <p>Neuromarketing, posicionamento de marca e análise de concorrência incluídos em todos os projetos para maximizar resultados.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Retratos" loading="lazy">
-                    <div class="gallery-caption">Ensaios de Retrato</div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Seu material pronto em até 5 dias úteis. Priorizamos sua satisfação com agilidade sem comprometer a qualidade.</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Gastronomia" loading="lazy">
-                    <div class="gallery-caption">Fotografia Gastronômica</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Evento Corporativo" loading="lazy">
-                    <div class="gallery-caption">Evento Corporativo</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1543269664-7eef42226a21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Formatura" loading="lazy">
-                    <div class="gallery-caption">Cerimônia de Formatura</div>
-                </div>
-            </div>
-            
-            <div class="gallery" id="video-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Comercial" loading="lazy">
-                    <div class="gallery-caption">Vídeo Comercial</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Redes Sociais" loading="lazy">
-                    <div class="gallery-caption">Conteúdo para Redes Sociais</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Evento Corporativo" loading="lazy">
-                    <div class="gallery-caption">Evento Corporativo</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Entrevista" loading="lazy">
-                    <div class="gallery-caption">Entrevista Corporativa</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551817958-d9d86fb29431?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Produto" loading="lazy">
-                    <div class="gallery-caption">Vídeo de Produto</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1611746869696-d09bce200020?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Publicidade" loading="lazy">
-                    <div class="gallery-caption">Campanha Publicitária</div>
-                </div>
-            </div>
-            
-            <div class="gallery" id="drone-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Imobiliária" loading="lazy">
-                    <div class="gallery-caption">Filmagem Aérea para Imobiliária</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1591940743364-7b8c276a5264?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Eventos" loading="lazy">
-                    <div class="gallery-caption">Eventos com Cenas Aéreas</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1516216628854-8c35cacb3362?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Publicidade" loading="lazy">
-                    <div class="gallery-caption">Filmagem Aérea Publicitária</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Construção" loading="lazy">
-                    <div class="gallery-caption">Mapeamento de Obras</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Paisagem" loading="lazy">
-                    <div class="gallery-caption">Filmagem de Paisagens</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1574359411650-44c6a8f0b0e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Inspeção" loading="lazy">
-                    <div class="gallery-caption">Inspeção Estrutural com Drone</div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Qualidade Garantida</h3>
+                    <p>Equipamento profissional de última geração e anos de experiência para garantir o melhor resultado em cada projeto.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contato -->
-    <section id="contact">
+    <!-- Portfólio -->
+    <section id="portfolio" class="portfolio-section">
         <div class="container">
-            <h2 class="section-title">Entrar em Contato</h2>
-            <div class="contact-section">
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Informações de Contato</h3>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Telefone</h4>
-                                <p>(62) 98433-2509</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Localização</h4>
-                                <p>Jaraguá - GO e Região</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Horário de Atendimento</h4>
-                                <p>Segunda a Sexta: 8h às 18h</p>
-                                <p>Sábado: 9h às 13h</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>E-mail</h4>
-                                <p>eclatnoble1@gmail.com</p>
-                            </div>
-                        </div>
+            <h2 class="section-title">Nosso Portfólio</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #ccc;">Confira alguns dos nossos trabalhos com qualidade cinema</p>
+            
+            <!-- Abas do Portfólio -->
+            <div class="portfolio-tabs">
+                <button class="portfolio-tab active" data-portfolio="photography">Fotografia</button>
+                <button class="portfolio-tab" data-portfolio="videography">Filmagem</button>
+                <button class="portfolio-tab" data-portfolio="drone">Drone</button>
+            </div>
+            
+            <!-- Conteúdo Fotografia -->
+            <div class="portfolio-content active" id="photography-portfolio">
+                <div class="gallery">
+                    <!-- Casamento Premium -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Casamento Premium" loading="lazy">
+                        <div class="gallery-caption">Casamento Premium - Momentos Únicos</div>
                     </div>
                     
-                    <div class="contact-form">
-                        <h3>Enviar sua mensagem</h3>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Nome completo</label>
-                                <input type="text" id="name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input type="email" id="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefone</label>
-                                <input type="tel" id="phone" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="service">Serviço de interesse</label>
-                                <select id="service" class="form-control" required>
-                                    <option value="">Selecionar um serviço</option>
-                                    <option value="photography">Fotografia</option>
-                                    <option value="videography">Filmagem</option>
-                                    <option value="drone">Filmagem com Drone</option>
-                                    <option value="both">Ambos</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Mensagem</label>
-                                <textarea id="message" class="form-control" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                        </form>
+                    <!-- Fotografia de Produtos -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Fotografia de Produtos" loading="lazy">
+                        <div class="gallery-caption">Fotografia de Produtos - E-commerce</div>
+                    </div>
+                    
+                    <!-- Ensaios de Retrato -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1188&q=80" alt="Ensaios de Retrato" loading="lazy">
+                        <div class="gallery-caption">Ensaios de Retrato - Sessão Personalizada</div>
+                    </div>
+                    
+                    <!-- Fotografia Gastronômica -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" alt="Fotografia Gastronômica" loading="lazy">
+                        <div class="gallery-caption">Fotografia Gastronômica - Pratos Irresistíveis</div>
+                    </div>
+                    
+                    <!-- Evento Corporativo -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Evento Corporativo" loading="lazy">
+                        <div class="gallery-caption">Evento Corporativo - Cobertura Completa</div>
+                    </div>
+                    
+                    <!-- Cerimônia de Formatura -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cerimônia de Formatura" loading="lazy">
+                        <div class="gallery-caption">Cerimônia de Formatura - Momentos Especiais</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo Filmagem -->
+            <div class="portfolio-content" id="videography-portfolio">
+                <div class="gallery">
+                    <!-- Vídeo Comercial -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Vídeo Comercial" loading="lazy">
+                        <div class="gallery-caption">Vídeo Comercial - Institucional Profissional</div>
+                    </div>
+                    
+                    <!-- Conteúdo para Redes Sociais -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Conteúdo para Redes Sociais" loading="lazy">
+                        <div class="gallery-caption">Conteúdo para Redes Sociais - Estratégico e Engajador</div>
+                    </div>
+                    
+                    <!-- Evento Corporativo -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Evento Corporativo" loading="lazy">
+                        <div class="gallery-caption">Evento Corporativo - Filmagem Profissional</div>
+                    </div>
+                    
+                    <!-- Entrevista Corporativa -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Entrevista Corporativa" loading="lazy">
+                        <div class="gallery-caption">Entrevista Corporativa - Captura de Depoimentos</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo Drone -->
+            <div class="portfolio-content" id="drone-portfolio">
+                <div class="gallery">
+                    <!-- Filmagem Aérea para Imobiliária -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1519996529932-47c8dd291b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Filmagem Aérea para Imobiliária" loading="lazy">
+                        <div class="gallery-caption">Filmagem Aérea para Imobiliária - Perspectiva Única</div>
+                    </div>
+                    
+                    <!-- Eventos com Cenas Aéreas -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Eventos com Cenas Aéreas" loading="lazy">
+                        <div class="gallery-caption">Eventos com Cenas Aéreas - Grandiosidade</div>
+                    </div>
+                    
+                    <!-- Filmagem Aérea Publicitária -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Filmagem Aérea Publicitária" loading="lazy">
+                        <div class="gallery-caption">Filmagem Aérea Publicitária - Impacto Visual</div>
+                    </div>
+                    
+                    <!-- Mapeamento de Obras -->
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1545150662-4b3d3c0699a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" alt="Mapeamento de Obras" loading="lazy">
+                        <div class="gallery-caption">Mapeamento de Obras - Documentação Completa</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Seção de Depoimentos -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"A qualidade da filmagem em LOG 4K é impressionante! Nosso vídeo institucional ficou profissional e a estratégia de marketing ajudou a aumentar nossas vendas em 40%."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cliente" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Carlos Silva</h4>
+                            <p>Dono de Empresa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"O estudo de neuromarketing fez toda a diferença em nossas campanhas. Os vídeos têm engajamento muito maior e estamos convertendo mais clientes."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b332c8cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cliente" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Mariana Costa</h4>
+                            <p>Gerente de Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"A qualidade cinematográfica dos vídeos superou minhas expectativas. O trabalho de pós-produção é impecável e o resultado final é simplesmente incrível!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cliente" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Ricardo Mendes</h4>
+                            <p>Produtor de Eventos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Localização</h4>
+                            <p>Jaraguá-GO, Brasil</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telefone</h4>
+                            <p>(62) 98433-2509</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>E-mail</h4>
+                            <p>eclatnoble1@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>WhatsApp</h4>
+                            <p>(62) 98433-2509</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envie sua Mensagem</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Seu e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Seu telefone">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="fotografia">Fotografia</option>
+                                <option value="filmagem">Filmagem</option>
+                                <option value="drone">Filmagem com Drone</option>
+                                <option value="marketing">Consultoria de Marketing</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="Sua mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1978,422 +2560,270 @@
                     <div class="logo-line">UM</div>
                     <div class="logo-line">FOTÓGRAFO</div>
                     <div class="logo-line">AMADOR</div>
-                    <p>Transformando momentos em memórias eternas</p>
+                    <p>Qualidade cinema com estratégia de marketing completa para sua marca.</p>
                 </div>
                 <div class="footer-info">
-                    <h3>Contato</h3>
+                    <h3>Contato Rápido</h3>
                     <p><i class="fas fa-phone"></i> (62) 98433-2509</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jaraguá - GO e Região</p>
-                    <p><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h</p>
+                    <p><i class="fas fa-envelope"></i> eclatnoble1@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jaraguá-GO, Brasil</p>
                 </div>
                 <div class="footer-social">
-                    <h3>Siga-nos</h3>
+                    <h3>Redes Sociais</h3>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/_umfotografoamador_?utm_source=ig_web_button_share_sheet&igsh=MTdxamwzNTlhc2J6aw==" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/5562984332509" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                        <a href="https://www.instagram.com/_umfotografoamador_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5562984332509" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                © 2025 Um Fotógrafo Amador. Todos os direitos reservados.
+                <p>&copy; 2023 Um Fotógrafo Amador. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu Mobile
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('nav ul');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-bars');
-            this.querySelector('i').classList.toggle('fa-times');
-        });
-
-        // Navegação suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
+        // JavaScript para funcionalidades do site
+        document.addEventListener('DOMContentLoaded', function() {
+            // Criar partículas para efeito visual
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 30;
                 
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
                     
-                    // Fechar menu mobile se estiver aberto
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                    }
+                    // Tamanho aleatório
+                    const size = Math.random() * 10 + 5;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
                     
-                    // Ativar link no menu
-                    document.querySelectorAll('nav a').forEach(link => {
-                        link.classList.remove('active');
-                    });
+                    // Posição aleatória
+                    particle.style.left = `${Math.random() * 100}%`;
+                    
+                    // Atraso aleatório para animação
+                    particle.style.animationDelay = `${Math.random() * 15}s`;
+                    
+                    // Opacidade aleatória
+                    particle.style.opacity = Math.random() * 0.5 + 0.1;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            createParticles();
+
+            // Sistema de abas de serviços
+            const serviceTabs = document.querySelectorAll('.service-tab');
+            serviceTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const service = this.getAttribute('data-service');
+                    
+                    // Ativar guia
+                    serviceTabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-                }
-            });
-        });
-
-        // Guias de serviço
-        const serviceTabs = document.querySelectorAll('.service-tab');
-        serviceTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const service = this.getAttribute('data-service');
-                
-                // Ativar guia
-                serviceTabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Exibir conteúdo
-                document.querySelectorAll('.service-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(`${service}-content`).classList.add('active');
-            });
-        });
-
-        // Guias da galeria
-        const galleryTabs = document.querySelectorAll('[data-gallery]');
-        galleryTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const gallery = this.getAttribute('data-gallery');
-                
-                // Ativar aba
-                galleryTabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Exibir galeria
-                document.querySelectorAll('.gallery').forEach(g => {
-                    g.classList.remove('active');
-                });
-                document.getElementById(gallery).classList.add('active');
-            });
-        });
-
-        // Envio do formulário de contato
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Simulação de envio
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contactForm.reset();
-        });
-
-        // Modal do Questionário
-        const questionnaireModal = document.getElementById('questionnaireModal');
-        const openQuestionnaireBtn = document.getElementById('openQuestionnaire');
-        const closeModalBtn = document.getElementById('closeModal');
-        const formProgress = document.getElementById('formProgress');
-        
-        openQuestionnaireBtn.addEventListener('click', function() {
-            questionnaireModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            // Restaurar dados salvos se existirem
-            restoreFormData();
-        });
-        
-        closeModalBtn.addEventListener('click', function() {
-            questionnaireModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        window.addEventListener('click', function(e) {
-            if (e.target === questionnaireModal) {
-                questionnaireModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Salvar progresso do formulário
-        const strategyForm = document.getElementById('strategyForm');
-        const formInputs = strategyForm.querySelectorAll('input, textarea, select');
-        
-        // Salvar dados automaticamente
-        formInputs.forEach(input => {
-            input.addEventListener('input', function() {
-                saveFormData();
-                updateProgressBar();
-            });
-        });
-        
-        function saveFormData() {
-            const formData = new FormData(strategyForm);
-            const data = {};
-            
-            for (let [key, value] of formData.entries()) {
-                if (data[key]) {
-                    if (Array.isArray(data[key])) {
-                        data[key].push(value);
-                    } else {
-                        data[key] = [data[key], value];
-                    }
-                } else {
-                    data[key] = value;
-                }
-            }
-            
-            localStorage.setItem('questionnaireData', JSON.stringify(data));
-        }
-        
-        function restoreFormData() {
-            const savedData = localStorage.getItem('questionnaireData');
-            if (savedData) {
-                const data = JSON.parse(savedData);
-                
-                for (const key in data) {
-                    const element = strategyForm.querySelector(`[name="${key}"]`);
-                    if (element) {
-                        if (element.type === 'checkbox' || element.type === 'radio') {
-                            if (Array.isArray(data[key])) {
-                                data[key].forEach(value => {
-                                    const matchingElement = strategyForm.querySelector(`[name="${key}"][value="${value}"]`);
-                                    if (matchingElement) matchingElement.checked = true;
-                                });
-                            } else {
-                                const matchingElement = strategyForm.querySelector(`[name="${key}"][value="${data[key]}"]`);
-                                if (matchingElement) matchingElement.checked = true;
-                            }
-                        } else {
-                            element.value = data[key];
-                        }
-                    }
-                }
-                
-                updateProgressBar();
-            }
-        }
-        
-        function updateProgressBar() {
-            const totalFields = formInputs.length;
-            let filledFields = 0;
-            
-            formInputs.forEach(input => {
-                if (input.type === 'checkbox' || input.type === 'radio') {
-                    if (input.checked) filledFields++;
-                } else if (input.value.trim() !== '') {
-                    filledFields++;
-                }
-            });
-            
-            const progressPercentage = (filledFields / totalFields) * 100;
-            formProgress.style.width = `${progressPercentage}%`;
-        }
-
-        // Envio do questionário estratégico
-        strategyForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Coletar dados do formulário
-            const formData = new FormData(strategyForm);
-            const data = Object.fromEntries(formData);
-            
-            // Formatar mensagem para WhatsApp
-            let message = "📋 *NOVO QUESTIONÁRIO ESTRATÉGICO* 📋\n\n";
-            
-            // 1. Dados Gerais
-            message += "*1. DADOS GERAIS*\n";
-            message += `Nome/Razão Social: ${data.nome || 'Não informado'}\n`;
-            message += `E-mail: ${data.email || 'Não informado'}\n`;
-            message += `Telefone: ${data.telefone || 'Não informado'}\n`;
-            message += `Site/Redes Sociais: ${data.site || 'Não informado'}\n`;
-            message += `Como nos conheceu: ${data.conheceu || 'Não informado'}`;
-            if (data.conheceu === 'outro' && data['conheceu-outro-texto']) {
-                message += ` - ${data['conheceu-outro-texto']}`;
-            }
-            message += "\n\n";
-            
-            // 2. Perfil e Objetivos
-            message += "*2. PERFIL E OBJETIVOS*\n";
-            message += `Contratante: ${data.contratante || 'Não informado'}`;
-            if (data.contratante === 'outro' && data['contratante-outro-texto']) {
-                message += ` - ${data['contratante-outro-texto']}`;
-            }
-            message += `\nObjetivos: `;
-            const objetivos = [];
-            if (data.objetivo && Array.isArray(data.objetivo)) {
-                data.objetivo.forEach(obj => {
-                    if (obj === 'outro' && data['objetivo-outro-texto']) {
-                        objetivos.push(data['objetivo-outro-texto']);
-                    } else {
-                        objetivos.push(obj);
-                    }
-                });
-            }
-            message += objetivos.join(', ') || 'Não informado';
-            message += `\nProjeto: ${data.projeto || 'Não informado'}\n\n`;
-            
-            // 3. Sobre o Empresário
-            message += "*3. SOBRE O EMPRESÁRIO*\n";
-            message += `Nome: ${data['nome-empresario'] || 'Não informado'}\n`;
-            message += `Trajetória: ${data.trajetoria || 'Não informado'}\n`;
-            message += `Motivação: ${data.motivacao || 'Não informado'}\n`;
-            message += `Maior orgulho: ${data.orgulho || 'Não informado'}\n`;
-            message += `Hobbies: ${data.hobbies || 'Não informado'}\n\n`;
-            
-            // 4. Sobre a Empresa
-            message += "*4. SOBRE A EMPRESA*\n";
-            message += `História: ${data['historia-empresa'] || 'Não informado'}\n`;
-            message += `Missão/Valores: ${data.missao || 'Não informado'}\n`;
-            message += `Diferencial: ${data.diferencial || 'Não informado'}\n`;
-            message += `Desafios: ${data.desafios || 'Não informado'}\n`;
-            message += `Conquistas: ${data.conquistas || 'Não informado'}\n`;
-            message += `Funcionários: ${data.funcionarios || 'Não informado'}\n\n`;
-            
-            // 5. Região e Dia a Dia
-            message += "*5. REGIÃO E DIA A DIA*\n";
-            message += `Região: ${data.regiao || 'Não informado'}\n`;
-            message += `Influência da região: ${data['influencia-regiao'] || 'Não informado'}\n`;
-            message += `Dia a dia: ${data['dia-a-dia'] || 'Não informado'}\n`;
-            message += `Comunidade: ${data.comunidade || 'Não informado'}\n\n`;
-            
-            // 6. Identidade Visual e Estilo
-            message += "*6. IDENTIDADE VISUAL E ESTILO*\n";
-            message += `Paleta de cores: ${data.paleta || 'Não informado'}\n`;
-            message += `Estilo visual: ${data.estilo || 'Não informado'}`;
-            if (data.estilo === 'outro' && data['estilo-outro-texto']) {
-                message += ` - ${data['estilo-outro-texto']}`;
-            }
-            message += `\nManual de marca: ${data.manual || 'Não informado'}\n\n`;
-            
-            // 7. Comunicação e Tom
-            message += "*7. COMUNICAÇÃO E TOM*\n";
-            message += `Percepção desejada: ${data.percepcao || 'Não informado'}`;
-            if (data.percepcao === 'outro' && data['percepcao-outro-texto']) {
-                message += ` - ${data['percepcao-outro-texto']}`;
-            }
-            message += `\nUso de humor: ${data.humor || 'Não informado'}\n`;
-            message += `Termos/gírias: ${data.girias || 'Não informado'}\n\n`;
-            
-            // 8. Preferências de Conteúdo e Referências
-            message += "*8. PREFERÊNCIAS DE CONTEÚDO E REFERÊNCIAS*\n";
-            message += `Redes sociais: `;
-            const redes = [];
-            if (data.redes && Array.isArray(data.redes)) {
-                data.redes.forEach(rede => {
-                    if (rede === 'outro' && data['redes-outro-texto']) {
-                        redes.push(data['redes-outro-texto']);
-                    } else {
-                        redes.push(rede);
-                    }
-                });
-            }
-            message += redes.join(', ') || 'Não informado';
-            
-            message += `\nTipos de conteúdo: `;
-            const conteudos = [];
-            if (data.conteudo && Array.isArray(data.conteudo)) {
-                data.conteudo.forEach(cont => {
-                    if (cont === 'outro' && data['conteudo-outro-texto']) {
-                        conteudos.push(data['conteudo-outro-texto']);
-                    } else {
-                        conteudos.push(cont);
-                    }
-                });
-            }
-            message += conteudos.join(', ') || 'Não informado';
-            message += `\nReferências: ${data.referencias || 'Não informado'}\n\n`;
-            
-            // 9. Estilo Musical
-            message += "*9. ESTILO MUSICAL*\n";
-            message += `Preferência musical: ${data.musica || 'Não informado'}\n`;
-            message += `Estilos/artistas: ${data['estilos-musicais'] || 'Não informado'}\n`;
-            message += `Preferência vocal: ${data.vocal || 'Não informado'}\n\n`;
-            
-            // 10. Expectativas com Nosso Trabalho
-            message += "*10. EXPECTATIVAS COM NOSSO TRABALHO*\n";
-            message += `Valores: `;
-            const valores = [];
-            if (data.valor && Array.isArray(data.valor)) {
-                data.valor.forEach(val => {
-                    if (val === 'outro' && data['valor-outro-texto']) {
-                        valores.push(data['valor-outro-texto']);
-                    } else {
-                        valores.push(val);
-                    }
-                });
-            }
-            message += valores.join(', ') || 'Não informado';
-            message += `\nO que não gostaria: ${data['nao-gostaria'] || 'Não informado'}\n\n`;
-            
-            // 11. Informações Complementares
-            message += "*11. INFORMAÇÕES COMPLEMENTARES*\n";
-            message += `Material de referência: ${data.referencia || 'Não informado'}\n`;
-            message += `Deseja plano estratégico: ${data.estrategia || 'Não informado'}\n\n`;
-            
-            message += `_Gerar relatório estratégico em https://chat.z.ai/_`;
-            
-            // Codificar mensagem para URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Gerar link do WhatsApp
-            const whatsappURL = `https://wa.me/5562984332509?text=${encodedMessage}`;
-            
-            // Limpar dados salvos
-            localStorage.removeItem('questionnaireData');
-            
-            // Abrir WhatsApp
-            window.open(whatsappURL, '_blank');
-            
-            // Feedback para o usuário
-            alert('Questionário enviado com sucesso! Em breve entraremos em contato para discutir sua estratégia personalizada.');
-            strategyForm.reset();
-            questionnaireModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // Ativar link do menu conforme scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Lazy loading para imagens
-        document.addEventListener("DOMContentLoaded", function() {
-            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-            
-            if ("IntersectionObserver" in window) {
-                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.classList.remove("lazy");
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
+                    
+                    // Exibir conteúdo
+                    document.querySelectorAll('.service-content').forEach(content => {
+                        content.classList.remove('active');
                     });
+                    document.getElementById(`${service}-content`).classList.add('active');
                 });
-                
-                lazyImages.forEach(function(lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
+            });
+
+            // Sistema de abas do portfólio
+            const portfolioTabs = document.querySelectorAll('.portfolio-tab');
+            portfolioTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const portfolio = this.getAttribute('data-portfolio');
+                    
+                    // Ativar guia
+                    portfolioTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Exibir conteúdo
+                    document.querySelectorAll('.portfolio-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(`${portfolio}-portfolio`).classList.add('active');
+                });
+            });
+
+            // Menu mobile
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // Navegação suave
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Fechar menu mobile se estiver aberto
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        }
+                    }
+                });
+            });
+
+            // Animação de elementos ao rolar a página
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observar elementos para animação
+            document.querySelectorAll('.benefit-card, .offer-card, .testimonial-card, .gallery-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(0, 0, 0, 0.95)';
+                    header.style.backdropFilter = 'blur(15px)';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+                } else {
+                    header.style.background = 'rgba(0, 0, 0, 0.9)';
+                    header.style.backdropFilter = 'blur(10px)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Simulação de envio
+                    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    contactForm.reset();
                 });
             }
+
+            // Sistema do Questionário ATUALIZADO
+            const questionnaireModal = document.getElementById('questionnaireModal');
+            const openQuestionnaireBtn = document.getElementById('openQuestionnaireBtn');
+            const closeModal = document.getElementById('closeModal');
+            const questionnaireForm = document.getElementById('questionnaireForm');
+            const sections = document.querySelectorAll('.question-section');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            let currentSection = 0;
+
+            // Abrir modal do questionário
+            openQuestionnaireBtn.addEventListener('click', function() {
+                questionnaireModal.style.display = 'flex';
+                currentSection = 0;
+                showSection(currentSection);
+            });
+
+            // Fechar modal
+            closeModal.addEventListener('click', function() {
+                questionnaireModal.style.display = 'none';
+            });
+
+            // Fechar modal ao clicar fora
+            window.addEventListener('click', function(e) {
+                if (e.target === questionnaireModal) {
+                    questionnaireModal.style.display = 'none';
+                }
+            });
+
+            // Mostrar seção atual
+            function showSection(index) {
+                sections.forEach((section, i) => {
+                    section.classList.remove('active');
+                    if (i === index) {
+                        section.classList.add('active');
+                    }
+                });
+
+                // Atualizar botões de navegação
+                prevBtn.style.display = index === 0 ? 'none' : 'block';
+                nextBtn.style.display = index === sections.length - 1 ? 'none' : 'block';
+                submitBtn.style.display = index === sections.length - 1 ? 'block' : 'none';
+            }
+
+            // Botão próximo
+            nextBtn.addEventListener('click', function() {
+                if (currentSection < sections.length - 1) {
+                    currentSection++;
+                    showSection(currentSection);
+                }
+            });
+
+            // Botão anterior
+            prevBtn.addEventListener('click', function() {
+                if (currentSection > 0) {
+                    currentSection--;
+                    showSection(currentSection);
+                }
+            });
+
+            // Enviar questionário
+            questionnaireForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Coletar dados do formulário
+                const formData = new FormData(questionnaireForm);
+                let message = "Olá! Gostaria de solicitar um orçamento com base nas seguintes informações do questionário:\n\n";
+                
+                // Adicionar cada campo à mensagem
+                for (let [key, value] of formData.entries()) {
+                    if (value) {
+                        message += `• ${key}: ${value}\n`;
+                    }
+                }
+                
+                // Codificar mensagem para URL
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Redirecionar para WhatsApp
+                window.open(`https://wa.me/5562984332509?text=${encodedMessage}`, '_blank');
+                
+                // Fechar modal
+                questionnaireModal.style.display = 'none';
+                
+                // Resetar formulário
+                questionnaireForm.reset();
+                
+                // Voltar para primeira seção
+                currentSection = 0;
+                showSection(currentSection);
+            });
         });
     </script>
 </body>
