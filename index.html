@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fotografia & Filmagem Profissional - Transformamos momentos especiais em memórias eternas com qualidade cinematográfica">
-    <meta name="keywords" content="fotografia, filmagem, drone, audiovisual, casamento, eventos, Goiás">
+    <meta name="description" content="Fotografia & Filmagem Profissional - Efeitos visuais de alto padrão e qualidade cinematográfica">
+    <meta name="keywords" content="fotografia, filmagem, drone, audiovisual, efeitos visuais, parallax">
     <meta name="author" content="Um Fotógrafo Amador">
     
     <!-- Pré-carregamento de recursos críticos -->
@@ -21,13 +21,14 @@
         :root {
             --primary: #d4af37;
             --secondary: #b8941f;
-            --dark: #1a1a1a;
+            --dark: #0a0a0a;
             --darker: #000;
-            --gray: #2d2d2d;
-            --light: #e0e0e0;
+            --gray: #1a1a1a;
+            --light: #f0f0f0;
             --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 15px 40px rgba(212, 175, 55, 0.4);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 15px 40px rgba(212, 175, 55, 0.6);
+            --glow: 0 0 20px rgba(212, 175, 55, 0.7);
         }
 
         * {
@@ -36,35 +37,40 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             line-height: 1.7;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         section {
-            padding: 100px 0;
+            padding: 120px 0;
             position: relative;
+            overflow: hidden;
         }
 
-        /* Header */
+        /* Header com efeito glassmorphism */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             transition: var(--transition);
             padding: 15px 0;
@@ -80,27 +86,51 @@
             display: flex;
             flex-direction: column;
             line-height: 1;
+            position: relative;
         }
 
         .logo-line {
             font-size: 1.5rem;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--primary);
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            text-shadow: var(--glow);
+            position: relative;
+            z-index: 2;
         }
 
         .logo-line:nth-child(1) {
             font-size: 1.7rem;
+            transform: translateX(-5px);
         }
 
         .logo-line:nth-child(2) {
             font-size: 2.2rem;
+            transform: translateX(5px);
         }
 
         .logo-line:nth-child(3) {
             font-size: 1.8rem;
+            transform: translateX(-3px);
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            border-radius: 10px;
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            opacity: 1;
         }
 
         nav ul {
@@ -109,7 +139,8 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 25px;
+            position: relative;
         }
 
         nav ul li a {
@@ -117,17 +148,35 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 30px;
             transition: var(--transition);
             position: relative;
             white-space: nowrap;
+            overflow: hidden;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            transition: left 0.7s ease;
+        }
+
+        nav ul li a:hover::before,
+        nav ul li a.active::before {
+            left: 100%;
         }
 
         nav ul li a:hover,
         nav ul li a.active {
             color: var(--darker);
             background: var(--primary);
+            box-shadow: var(--glow);
         }
 
         .mobile-menu-btn {
@@ -138,13 +187,20 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 1002;
-            width: 44px;
-            height: 44px;
+            width: 50px;
+            height: 50px;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
         }
 
-        /* Hero Section com Parallax */
+        .mobile-menu-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Hero Section com Parallax Avançado */
         .hero {
             height: 100vh;
             min-height: 800px;
@@ -164,12 +220,12 @@
             left: 0;
             width: 100%;
             height: 120%;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            z-index: -2;
-            transform: translateZ(-1px) scale(1.5);
+            z-index: -3;
         }
 
         .hero-overlay {
@@ -178,77 +234,99 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
             z-index: -1;
         }
 
         .hero-content {
             max-width: 900px;
-            padding: 20px;
+            padding: 40px;
             z-index: 2;
-            margin-top: 50px;
-            transform: translateZ(0);
+            position: relative;
         }
 
+        /* ALTERAÇÃO: Reduzir o tamanho do título principal */
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem; /* Reduzido de 4.5rem */
             color: var(--primary);
-            margin-bottom: 25px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            animation: fadeInDown 1s ease;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1.2s ease;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            box-shadow: var(--glow);
         }
 
         .hero p {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: var(--light);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             font-weight: 300;
-            animation: fadeInUp 1s ease;
+            animation: fadeInUp 1.2s ease 0.3s both;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s ease 0.6s both;
         }
 
         .hero-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: var(--primary);
             color: var(--darker);
-            padding: 15px 40px;
+            padding: 18px 45px;
             font-size: 1.2rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             transition: var(--transition);
             border: 2px solid var(--primary);
-            margin: 0 20px 20px;
-            animation: fadeIn 1.5s ease;
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
-            min-height: 54px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 60px;
+            min-width: 220px;
         }
 
-        .hero-btn:before {
+        .hero-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s ease;
         }
 
-        .hero-btn:hover:before {
+        .hero-btn:hover::before {
             left: 100%;
         }
 
         .hero-btn:hover {
             background: transparent;
             color: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
         }
 
@@ -261,6 +339,16 @@
         .hero-btn.secondary:hover {
             background: var(--primary);
             color: var(--darker);
+        }
+
+        /* Efeito de Partículas Interativas */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
 
         /* Seções com efeito parallax */
@@ -286,19 +374,19 @@
             z-index: 2;
         }
 
-        /* Seção de Ofertas */
+        /* Seção de Ofertas com efeito 3D */
         .offers-section {
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(45, 45, 45, 0.95));
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 50px 0;
+            border-radius: 25px;
+            padding: 80px 50px;
+            margin: 80px 0;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), inset 0 0 50px rgba(212, 175, 55, 0.1);
             position: relative;
             overflow: hidden;
         }
 
-        .offers-section:before {
+        .offers-section::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -307,41 +395,44 @@
             height: 200%;
             background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
             z-index: -1;
+            animation: rotate 20s linear infinite;
         }
 
         .section-title {
             text-align: center;
-            font-size: 3rem;
-            margin: 0 0 50px;
+            font-size: 3.5rem;
+            margin: 0 0 70px;
             color: var(--primary);
             position: relative;
-            padding-bottom: 20px;
-            font-weight: 700;
+            padding-bottom: 30px;
+            font-weight: 800;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .section-title:after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
+            width: 150px;
+            height: 6px;
             background: var(--primary);
             border-radius: 3px;
+            box-shadow: var(--glow);
         }
 
         .offers-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
         .offer-card {
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(184, 148, 31, 0.1));
-            padding: 40px 30px;
-            border-radius: 15px;
+            padding: 50px 35px;
+            border-radius: 20px;
             border: 1px solid var(--primary);
             text-align: center;
             transition: var(--transition);
@@ -350,101 +441,186 @@
             backdrop-filter: blur(10px);
         }
 
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
         .offer-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
             box-shadow: var(--shadow-hover);
+        }
+
+        .offer-card:hover::before {
+            opacity: 1;
         }
 
         .offer-badge {
             position: absolute;
-            top: 20px;
-            right: -30px;
+            top: 25px;
+            right: -35px;
             background: var(--secondary);
             color: white;
-            padding: 8px 40px;
+            padding: 10px 45px;
             transform: rotate(45deg);
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: bold;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 2;
         }
 
         .offer-icon {
-            font-size: 4rem;
+            font-size: 5rem;
             color: var(--primary);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-shadow: var(--glow);
+            transition: var(--transition);
+        }
+
+        .offer-card:hover .offer-icon {
+            transform: scale(1.2);
         }
 
         .offer-card h3 {
             color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-size: 2rem;
             font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .offer-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .offer-price {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--primary);
             font-weight: bold;
-            margin: 25px 0;
-            text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            margin: 30px 0;
+            text-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+            position: relative;
+        }
+
+        .offer-price::before {
+            content: 'R$';
+            font-size: 1.5rem;
+            position: absolute;
+            top: 10px;
+            left: -30px;
         }
 
         .offer-features {
             list-style: none;
-            margin: 30px 0;
+            margin: 35px 0;
         }
 
         .offer-features li {
-            margin: 15px 0;
-            color: #ccc;
+            margin: 18px 0;
+            color: #ddd;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: var(--transition);
+        }
+
+        .offer-features li:hover {
+            color: var(--primary);
+            transform: translateX(10px);
         }
 
         .offer-features li i {
             color: var(--primary);
-            margin-right: 10px;
-            font-size: 1.2rem;
+            margin-right: 12px;
+            font-size: 1.3rem;
         }
 
-        /* Seção de Serviços */
+        /* Seção de Serviços com abas animadas */
         .services-section {
-            background: rgba(26, 26, 26, 0.9);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 50px 0;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 25px;
+            padding: 80px 50px;
+            margin: 80px 0;
             border: 1px solid rgba(51, 51, 51, 0.5);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), inset 0 0 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            box-shadow: var(--glow);
         }
 
         .service-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .service-tab {
             background: transparent;
             color: var(--light);
             border: 2px solid var(--primary);
-            padding: 12px 30px;
+            padding: 15px 35px;
             margin: 10px 15px;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             transition: var(--transition);
             font-weight: bold;
-            min-height: 50px;
+            min-height: 60px;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .service-tab:hover::before {
+            left: 100%;
         }
 
         .service-tab:hover,
         .service-tab.active {
             background: var(--primary);
             color: var(--darker);
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
         }
 
         .service-content {
@@ -456,34 +632,42 @@
             display: block;
         }
 
+        /* ALTERAÇÃO: Tabelas sem barra de rolagem e com layout responsivo */
         .table-container {
-            overflow-x: auto;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            /* Removido overflow-x: auto */
+            margin-bottom: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            overflow: hidden; /* Para manter o border-radius */
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 800px;
+            /* Removido min-width: 900px para permitir que a tabela se ajuste */
         }
 
         th {
             background: rgba(51, 51, 51, 0.8);
             color: var(--primary);
-            padding: 20px 15px;
+            padding: 20px 15px; /* Reduzido um pouco o padding */
             text-align: left;
-            font-size: 1.1rem;
-            border-bottom: 3px solid var(--primary);
+            font-size: 1.1rem; /* Reduzido ligeiramente */
+            border-bottom: 4px solid var(--primary);
             font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         td {
-            padding: 18px 15px;
+            padding: 18px 15px; /* Reduzido um pouco o padding */
             border-bottom: 1px solid rgba(68, 68, 68, 0.5);
             color: var(--light);
-            font-size: 1rem;
+            font-size: 1rem; /* Reduzido ligeiramente */
+            transition: var(--transition);
         }
 
         tr:nth-child(even) {
@@ -492,157 +676,264 @@
 
         tr:hover {
             background-color: rgba(42, 42, 42, 0.7);
-            transition: var(--transition);
+        }
+
+        tr:hover td {
+            transform: translateX(5px);
         }
 
         .highlight {
             font-weight: bold;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            text-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
         }
 
         .consult {
             font-weight: bold;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-style: italic;
         }
 
         .service-icon {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
             background: var(--primary);
             color: var(--darker);
             border-radius: 50%;
             text-align: center;
-            line-height: 40px;
-            margin-right: 10px;
+            line-height: 45px;
+            margin-right: 12px;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+            transition: var(--transition);
+        }
+
+        tr:hover .service-icon {
+            transform: scale(1.2);
         }
 
         .service-description {
-            font-size: 0.95rem;
+            font-size: 0.95rem; /* Reduzido ligeiramente */
             color: #ccc;
-            margin-top: 5px;
+            margin-top: 8px;
             font-style: italic;
+            line-height: 1.4;
         }
 
         .notes {
-            background: rgba(34, 34, 34, 0.7);
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 40px;
-            border-left: 5px solid var(--primary);
-            backdrop-filter: blur(5px);
+            background: rgba(34, 34, 34, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 50px;
+            border-left: 6px solid var(--primary);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notes::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            z-index: -1;
         }
 
         .notes h3 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--primary);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .notes h3 i {
+            margin-right: 15px;
             font-size: 1.5rem;
         }
 
         .notes ul {
-            padding-left: 20px;
+            padding-left: 25px;
         }
 
         .notes li {
-            margin-bottom: 10px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            line-height: 1.7;
             color: var(--light);
-            font-size: 1rem;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 10px;
         }
 
-        /* Seção de Benefícios */
+        .notes li::before {
+            content: '▶';
+            color: var(--primary);
+            position: absolute;
+            left: -20px;
+            top: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Seção de Benefícios com cards flutuantes */
         .benefits-section {
-            background: rgba(26, 26, 26, 0.9);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 50px 0;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 25px;
+            padding: 80px 50px;
+            margin: 80px 0;
             border: 1px solid rgba(51, 51, 51, 0.5);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), inset 0 0 50px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         .benefits-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .benefit-card {
             text-align: center;
-            padding: 40px 30px;
-            border-radius: 15px;
-            background: rgba(34, 34, 34, 0.7);
+            padding: 50px 35px;
+            border-radius: 20px;
+            background: rgba(34, 34, 34, 0.8);
             transition: var(--transition);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: var(--transition);
         }
 
         .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             border-color: var(--primary);
         }
 
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
         .benefit-icon {
-            font-size: 4rem;
+            font-size: 5rem;
             color: var(--primary);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-shadow: var(--glow);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.2);
         }
 
         .benefit-card h3 {
             color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
             font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .benefit-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .benefit-card p {
-            color: #ccc;
-            line-height: 1.7;
+            color: #ddd;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
-        /* Seção de Portfólio */
+        /* Seção de Portfólio com galeria interativa */
         .portfolio-section {
-            background: rgba(26, 26, 26, 0.9);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 50px 0;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 25px;
+            padding: 80px 50px;
+            margin: 80px 0;
             border: 1px solid rgba(51, 51, 51, 0.5);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), inset 0 0 50px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         .portfolio-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .portfolio-tab {
             background: transparent;
             color: var(--light);
             border: 2px solid var(--primary);
-            padding: 12px 30px;
+            padding: 15px 35px;
             margin: 10px 15px;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             transition: var(--transition);
             font-weight: bold;
-            min-height: 50px;
+            min-height: 60px;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .portfolio-tab:hover::before {
+            left: 100%;
         }
 
         .portfolio-tab:hover,
         .portfolio-tab.active {
             background: var(--primary);
             color: var(--dark);
+            box-shadow: var(--glow);
+            transform: translateY(-5px);
         }
 
         .portfolio-content {
@@ -654,37 +945,55 @@
             animation: fadeIn 0.8s ease;
         }
 
-        /* Galeria Moderna */
+        /* Galeria com efeito de ampliação e rotação */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
         }
 
         .gallery-item {
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
-            height: 300px;
+            height: 350px;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 2;
         }
 
         .gallery-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
             box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s ease;
+            transition: transform 1s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
 
         .gallery-caption {
@@ -694,52 +1003,92 @@
             right: 0;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
             color: #fff;
-            padding: 20px;
+            padding: 25px;
             transform: translateY(100%);
             transition: var(--transition);
-            font-size: 1rem;
+            font-size: 1.2rem;
+            z-index: 3;
         }
 
         .gallery-item:hover .gallery-caption {
             transform: translateY(0);
         }
 
-        /* Seção de Depoimentos */
+        /* Seção de Depoimentos com efeito de flip */
         .testimonials-section {
-            background: rgba(26, 26, 26, 0.9);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 50px 0;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 25px;
+            padding: 80px 50px;
+            margin: 80px 0;
             border: 1px solid rgba(51, 51, 51, 0.5);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), inset 0 0 50px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         .testimonials-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .testimonial-card {
-            background: rgba(34, 34, 34, 0.7);
-            padding: 40px 30px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary);
+            background: rgba(34, 34, 34, 0.8);
+            padding: 50px 35px;
+            border-radius: 20px;
+            border-left: 6px solid var(--primary);
             transition: var(--transition);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: var(--transition);
         }
 
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
         }
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 25px;
-            line-height: 1.7;
-            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
         }
 
         .testimonial-author {
@@ -748,103 +1097,174 @@
         }
 
         .testimonial-avatar {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            margin-right: 20px;
+            margin-right: 25px;
             object-fit: cover;
-            border: 2px solid var(--primary);
+            border: 3px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover .testimonial-avatar {
+            transform: scale(1.1);
         }
 
         .testimonial-info h4 {
             color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
         }
 
         .testimonial-info p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #ccc;
         }
 
-        /* Seção de Contato */
+        /* Seção de Contato com formulário animado */
         .contact-section {
-            background: rgba(26, 26, 26, 0.9);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 50px 0;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 25px;
+            padding: 80px 50px;
+            margin: 80px 0;
             border: 1px solid var(--primary);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), inset 0 0 50px rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            box-shadow: var(--glow);
         }
 
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
         }
 
         .contact-info h3 {
             color: var(--primary);
-            margin-bottom: 25px;
-            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .contact-detail {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            transition: var(--transition);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .contact-detail:hover {
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateX(10px);
         }
 
         .contact-icon {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-right: 15px;
-            min-width: 30px;
+            margin-right: 20px;
+            min-width: 35px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         .contact-text h4 {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .contact-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .contact-form {
-            background: rgba(34, 34, 34, 0.7);
-            padding: 40px 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
+            background: rgba(34, 34, 34, 0.8);
+            padding: 50px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.03), transparent);
+            z-index: -1;
         }
 
         .contact-form h3 {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             color: var(--primary);
-            font-size: 1.8rem;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            position: relative;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
-            font-weight: normal;
+            margin-bottom: 12px;
+            font-weight: 500;
             color: var(--light);
+            transition: var(--transition);
         }
 
         .form-control {
             width: 100%;
-            padding: 15px;
+            padding: 18px 20px;
             border: 1px solid #444;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 16px;
             background-color: rgba(45, 45, 45, 0.7);
             color: var(--light);
             transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
         }
 
         .form-control:focus {
@@ -852,10 +1272,11 @@
             border-color: var(--primary);
             background-color: rgba(51, 51, 51, 0.9);
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
         }
 
@@ -863,37 +1284,68 @@
             background: var(--primary);
             color: var(--darker);
             border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
+            padding: 18px 45px;
+            font-size: 1.2rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
             display: block;
-            margin: 40px auto 0;
+            margin: 50px auto 0;
             transition: var(--transition);
             box-shadow: var(--shadow);
-            min-height: 50px;
+            min-height: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
         }
 
         .submit-btn:hover {
             background: #c19d2e;
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
         }
 
-        /* Rodapé */
+        /* Rodapé com efeito de gradiente */
         footer {
-            background: rgba(0, 0, 0, 0.95);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), rgba(10, 10, 10, 0.98));
             color: var(--primary);
-            padding: 70px 0 30px;
+            padding: 80px 0 40px;
             border-top: 3px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-logo {
@@ -918,84 +1370,138 @@
         }
 
         .footer-logo p {
-            margin-top: 15px;
+            margin-top: 20px;
             color: var(--light);
-            font-size: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         .footer-info h3 {
             color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .footer-info p {
-            margin: 10px 0;
+            margin: 15px 0;
             color: var(--light);
-            font-size: 1rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
+            transition: var(--transition);
+            padding: 8px 0;
+        }
+
+        .footer-info p:hover {
+            color: var(--primary);
+            transform: translateX(5px);
         }
 
         .footer-info i {
             color: var(--primary);
-            margin-right: 12px;
-            min-width: 20px;
+            margin-right: 15px;
+            min-width: 25px;
+            font-size: 1.2rem;
         }
 
         .footer-social h3 {
             color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-social h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height = 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--primary);
             color: var(--darker);
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             transition: var(--transition);
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .social-links a:hover::before {
+            left: 100%;
         }
 
         .social-links a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
         }
 
         .copyright {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 25px;
+            margin-top: 60px;
+            padding-top: 30px;
             border-top: 1px solid #444;
             color: #aaa;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Botões Flutuantes */
+        /* Botões Flutuantes com animação */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 40px;
+            left: 40px;
             background: #25D366;
             color: white;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             z-index: 999;
             cursor: pointer;
@@ -1005,23 +1511,24 @@
         }
 
         .whatsapp-float:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+            animation: none;
         }
 
         .questionnaire-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 40px;
+            right: 40px;
             background: var(--primary);
             color: var(--darker);
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             box-shadow: var(--shadow);
             z-index: 999;
             cursor: pointer;
@@ -1030,11 +1537,12 @@
         }
 
         .questionnaire-btn:hover {
-            transform: translateY(-5px) rotate(10deg);
+            transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
+            animation: none;
         }
 
-        /* Modal do Questionário */
+        /* Modal do Questionário com efeito de vidro */
         .modal {
             display: none;
             position: fixed;
@@ -1042,129 +1550,87 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 10000;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .modal-content {
-            background: var(--dark);
-            padding: 40px;
-            border-radius: 20px;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 50px 40px;
+            border-radius: 25px;
             width: 90%;
-            max-width: 800px;
+            max-width: 900px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--primary);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             position: relative;
+            backdrop-filter: blur(15px);
         }
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
+            top: 20px;
+            right: 25px;
+            font-size: 2.2rem;
             color: var(--primary);
             cursor: pointer;
             transition: var(--transition);
-            width: 44px;
-            height: 44px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
         }
 
         .close-modal:hover {
             color: var(--secondary);
             transform: rotate(90deg);
+            background: rgba(212, 175, 55, 0.1);
         }
 
         .modal h2 {
             color: var(--primary);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 20px;
         }
 
-        .question-section {
-            margin-bottom: 40px;
-            display: none;
-        }
-
-        .question-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .question-section h3 {
-            color: var(--light);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 10px;
-        }
-
-        .radio-group, .checkbox-group {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .radio-group input, .checkbox-group input {
-            margin-right: 10px;
-        }
-
-        .radio-group label, .checkbox-group label {
-            margin-bottom: 0;
-        }
-
-        .modal-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
-        .modal-btn {
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-        }
-
-        .modal-btn.prev {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .modal-btn.next, .modal-btn.submit {
+        .modal h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
             background: var(--primary);
-            color: var(--darker);
+            border-radius: 2px;
         }
 
-        .modal-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Animações */
+        /* Animações avançadas */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -1175,7 +1641,7 @@
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-50px);
             }
             to {
                 opacity: 1;
@@ -1185,43 +1651,13 @@
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
             100% { transform: scale(1); }
         }
 
-        /* Efeito de partículas */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(212, 175, 55, 0.3);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* Estados de acessibilidade */
@@ -1237,12 +1673,7 @@
             border: 0;
         }
 
-        /* Melhorias de contraste */
-        .section-description {
-            color: #e0e0e0;
-        }
-
-        /* Otimizações para performance */
+        /* Suporte para prefers-reduced-motion */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1251,24 +1682,41 @@
             }
         }
 
-        /* RESPONSIVIDADE - Media Queries Agrupadas */
+        /* ALTERAÇÃO: Ajustes responsivos para as tabelas sem rolagem */
         @media (max-width: 1200px) {
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 3rem; /* Ajustado de acordo com a nova base */
             }
             
             .hero p {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            /* Ajustes para tabelas em telas menores */
+            th, td {
+                padding: 15px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .service-icon {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 1.1rem;
             }
         }
 
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.8rem; /* Ajustado de acordo com a nova base */
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             
             .section-title {
@@ -1281,7 +1729,22 @@
             
             nav ul li a {
                 font-size: 0.9rem;
-                padding: 6px 12px;
+                padding: 8px 15px;
+            }
+            
+            .offers-section, .services-section, .benefits-section, 
+            .portfolio-section, .testimonials-section, .contact-section {
+                padding: 60px 30px;
+            }
+            
+            /* Ajustes para tabelas em telas menores */
+            th, td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .service-description {
+                font-size: 0.85rem;
             }
         }
 
@@ -1298,14 +1761,15 @@
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 80%;
+                width: 85%;
                 height: 100vh;
-                background: rgba(0, 0, 0, 0.95);
+                background: rgba(10, 10, 10, 0.95);
                 flex-direction: column;
-                padding-top: 100px;
+                padding-top: 120px;
                 transition: var(--transition);
                 z-index: 1000;
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(15px);
+                border-left: 1px solid rgba(212, 175, 55, 0.2);
             }
             
             nav ul.active {
@@ -1313,15 +1777,15 @@
             }
             
             nav ul li {
-                margin: 20px 0;
-                padding: 0 30px;
+                margin: 25px 0;
+                padding: 0 40px;
             }
             
             nav ul li a {
                 display: block;
-                padding: 15px;
+                padding: 18px;
                 text-align: center;
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 width: 100%;
             }
             
@@ -1354,23 +1818,23 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.5rem; /* Ajustado de acordo com a nova base */
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             
             .hero-btns {
-                display: flex;
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
             
             .hero-btn {
-                margin: 10px 0;
-                width: 80%;
-                max-width: 300px;
+                margin: 5px 0;
+                width: 85%;
+                max-width: 320px;
             }
             
             .section-title {
@@ -1384,75 +1848,93 @@
             
             .service-tab, .portfolio-tab {
                 width: 100%;
-                max-width: 300px;
-                margin: 8px 0;
+                max-width: 350px;
+                margin: 10px 0;
             }
             
             .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
             .gallery-item {
-                height: 250px;
+                height: 300px;
             }
             
             .gallery-item:hover {
-                transform: none;
+                transform: translateY(-10px);
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 40px;
             }
             
             .whatsapp-float {
-                bottom: 100px;
-                left: 20px;
-                width: 60px;
-                height: 60px;
-                font-size: 1.7rem;
+                bottom: 120px;
+                left: 25px;
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
             }
             
             .questionnaire-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+                bottom: 30px;
+                right: 25px;
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
             }
 
             .modal-content {
-                padding: 30px 20px;
+                padding: 40px 25px;
+            }
+            
+            /* Ajustes para tabelas em telas menores */
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+            
+            .service-icon {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 1rem;
+                margin-right: 8px;
+            }
+            
+            .service-description {
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 576px) {
             .hero-content {
-                padding: 15px;
+                padding: 20px;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.2rem; /* Ajustado de acordo com a nova base */
                 line-height: 1.2;
             }
             
             .hero p {
-                font-size: 1rem;
-                margin-bottom: 40px;
+                font-size: 1.1rem;
+                margin-bottom: 50px;
             }
             
             .services-section, .contact-section, .portfolio-section {
-                padding: 40px 20px;
+                padding: 50px 20px;
             }
             
             .section-title {
                 font-size: 2rem;
-                margin-bottom: 40px;
+                margin-bottom: 50px;
             }
             
             .service-tab, .portfolio-tab {
-                padding: 10px 20px;
-                font-size: 1rem;
+                padding: 12px 25px;
+                font-size: 1.1rem;
             }
             
             .gallery {
@@ -1460,7 +1942,7 @@
             }
             
             .gallery-item {
-                height: 280px;
+                height: 320px;
             }
             
             .contact-container {
@@ -1468,15 +1950,29 @@
             }
             
             .contact-form {
-                padding: 30px 20px;
+                padding: 40px 25px;
             }
             
             .form-control {
-                padding: 12px;
+                padding: 15px;
             }
             
             .offers-section, .benefits-section, .testimonials-section {
-                padding: 40px 20px;
+                padding: 50px 20px;
+            }
+            
+            .offer-card, .benefit-card, .testimonial-card {
+                padding: 40px 25px;
+            }
+            
+            /* Ajustes para tabelas em telas muito pequenas */
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }
+            
+            .service-description {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -1507,12 +2003,13 @@
         </div>
     </header>
 
-    <!-- Seção Hero -->
+    <!-- Seção Hero com Parallax Avançado -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
-        <div class="particles" id="particles"></div>
+        <div id="particles-js"></div>
         <div class="container hero-content">
+            <!-- O título agora é menor e caberá melhor na tela -->
             <h1>FOTOGRAFIA & FILMAGEM PROFISSIONAL</h1>
             <p>Transformamos momentos especiais em memórias eternas com qualidade cinematográfica</p>
             <div class="hero-btns">
@@ -2012,7 +2509,7 @@
                 <div class="modal-buttons">
                     <button type="button" class="modal-btn prev" id="prevBtn" style="display: none;">Anterior</button>
                     <button type="button" class="modal-btn next" id="nextBtn">Próxima</button>
-                    <button type="submit" class="modal-btn submit" id="submitBtn" style="display: none;">Enviar Questionário</button>
+                    <button type="button" class="modal-btn submit" id="submitBtn" style="display: none;">Enviar Questionário</button>
                 </div>
             </form>
             
@@ -2028,7 +2525,7 @@
     <section id="offers" class="offers-section">
         <div class="container">
             <h2 class="section-title">Pacotes de Vídeos para Redes Sociais</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #ccc;" class="section-description">Conteúdo estratégico com filmagem LOG 4K e pós-produção padrão cinema</p>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.3rem; color: #ddd;" class="section-description">Conteúdo estratégico com filmagem LOG 4K e pós-produção padrão cinema</p>
             
             <div class="offers-container">
                 <div class="offer-card">
@@ -2038,14 +2535,14 @@
                     </div>
                     <h3>Pacote Bronze</h3>
                     <p>Ideal para quem está começando nas redes sociais</p>
-                    <div class="offer-price">R$ 400</div>
+                    <div class="offer-price">400</div>
                     <ul class="offer-features">
                         <li><i class="fas fa-check"></i> 1 vídeo (15-60s)</li>
                         <li><i class="fas fa-check"></i> Filmagem em LOG 4K</li>
                         <li><i class="fas fa-check"></i> Pós-produção padrão cinema</li>
                         <li><i class="fas fa-check"></i> Entrega em 5 dias</li>
                     </ul>
-                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Bronze de R$ 400" class="hero-btn" target="_blank" style="padding: 12px 30px; font-size: 1rem;">Quero Este Pacote</a>
+                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Bronze de R$ 400" class="hero-btn" target="_blank" style="padding: 15px 35px; font-size: 1.1rem;">Quero Este Pacote</a>
                 </div>
                 
                 <div class="offer-card">
@@ -2055,14 +2552,14 @@
                     </div>
                     <h3>Pacote Prata</h3>
                     <p>Para quem quer consistência e crescimento</p>
-                    <div class="offer-price">R$ 900</div>
+                    <div class="offer-price">900</div>
                     <ul class="offer-features">
                         <li><i class="fas fa-check"></i> 3 vídeos (15-60s cada)</li>
                         <li><i class="fas fa-check"></i> Filmagem em LOG 4K</li>
                         <li><i class="fas fa-check"></i> Pós-produção padrão cinema</li>
                         <li><i class="fas fa-check"></i> Entrega em 7 dias</li>
                     </ul>
-                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Prata de R$ 900" class="hero-btn" target="_blank" style="padding: 12px 30px; font-size: 1rem;">Quero Este Pacote</a>
+                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Prata de R$ 900" class="hero-btn" target="_blank" style="padding: 15px 35px; font-size: 1.1rem;">Quero Este Pacote</a>
                 </div>
                 
                 <div class="offer-card">
@@ -2072,7 +2569,7 @@
                     </div>
                     <h3>Pacote Ouro</h3>
                     <p>Estratégia completa para resultados extraordinários</p>
-                    <div class="offer-price">R$ 1.500</div>
+                    <div class="offer-price">1500</div>
                     <ul class="offer-features">
                         <li><i class="fas fa-check"></i> 6 vídeos padrão TikTok/Reels</li>
                         <li><i class="fas fa-check"></i> Animações personalizadas</li>
@@ -2080,12 +2577,12 @@
                         <li><i class="fas fa-check"></i> Pós-produção padrão cinema</li>
                         <li><i class="fas fa-check"></i> Entrega em 10 dias</li>
                     </ul>
-                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Ouro de R$ 1.500" class="hero-btn" target="_blank" style="padding: 12px 30px; font-size: 1rem;">Quero Este Pacote</a>
+                    <a href="https://wa.me/5562984332509?text=Olá! Tenho interesse no Pacote Ouro de R$ 1.500" class="hero-btn" target="_blank" style="padding: 15px 35px; font-size: 1.1rem;">Quero Este Pacote</a>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="color: #ccc; font-size: 1rem;">💡 <strong>Diferencial Exclusivo:</strong> Todos os pacotes incluem filmagem em LOG 4K e pós-produção padrão cinema!</p>
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="color: #ddd; font-size: 1.1rem;">💡 <strong>Diferencial Exclusivo:</strong> Todos os pacotes incluem filmagem em LOG 4K e pós-produção padrão cinema!</p>
             </div>
         </div>
     </section>
@@ -2094,7 +2591,7 @@
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title">Nossos Serviços Completos</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #ccc;" class="section-description">Confira nossa tabela completa de serviços e preços</p>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.3rem; color: #ddd;" class="section-description">Confira nossa tabela completa de serviços e preços</p>
             
             <div class="service-tabs">
                 <button class="service-tab active" data-service="photography">Fotografia</button>
@@ -2174,15 +2671,20 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- ALTERAÇÃO: Substituição do bloco de condições especiais pelo de diferenciais de filmagem -->
                 <div class="notes">
-                    <h3>💰 Condições Especiais para Jaraguá e Região:</h3>
+                    <h3><i class="fas fa-film"></i> Diferenciais Exclusivos da Nossa Filmagem:</h3>
                     <ul>
-                        <li><strong>Primeiros 10 clientes:</strong> 20% de desconto em qualquer pacote</li>
+                        <li><strong>Filmagem em LOG 4K:</strong> Máxima qualidade de imagem e flexibilidade na pós-produção</li>
+                        <li><strong>Padrão Cinema:</strong> Color grading profissional e tratamento de imagem cinema</li>
+                        <li><strong>Estratégia de Marketing Incluída:</strong> Posicionamento de marca, estudo de público e concorrência</li>
+                        <li><strong>Neuromarketing Aplicado:</strong> Técnicas de persuasão psicológica em todos os vídeos</li>
+                        <li><strong>Roteirização Estratégica:</strong> Conteúdo desenvolvido para engajar e converter</li>
+                        <li><strong>Equipamento Profissional:</strong> Câmeras cinema, áudio dedicado e iluminação profissional</li>
+                        <li><strong>Consultoria Incluída:</strong> Análise completa do seu negócio antes de cada projeto</li>
+                        <li><strong>Deslocamento:</strong> grátis até 5km de Jaraguá</li>
+                        <li><strong>Pagamento facilitado:</strong> 50% no agendamento + 50% na entrega</li>
                         <li><strong>Indicação:</strong> Ganhe R$ 50 de desconto na próxima sessão</li>
-                        <li><strong>Pacotes combinados:</strong> Foto + Vídeo com 15% off</li>
-                        <li>Pagamento facilitado: 50% no agendamento + 50% na entrega</li>
-                        <li>Deslocamento grátis até 20km de Jaraguá</li>
-                        <li>Material de cortesia: 5 fotos extras em todas as sessões</li>
                     </ul>
                 </div>
             </div>
@@ -2267,7 +2769,7 @@
                     </table>
                 </div>
                 <div class="notes">
-                    <h3>🎬 Diferenciais Exclusivos da Nossa Filmagem:</h3>
+                    <h3><i class="fas fa-film"></i> Diferenciais Exclusivos da Nossa Filmagem:</h3>
                     <ul>
                         <li><strong>Filmagem em LOG 4K:</strong> Máxima qualidade de imagem e flexibilidade na pós-produção</li>
                         <li><strong>Padrão Cinema:</strong> Color grading profissional e tratamento de imagem cinema</li>
@@ -2276,6 +2778,9 @@
                         <li><strong>Roteirização Estratégica:</strong> Conteúdo desenvolvido para engajar e converter</li>
                         <li><strong>Equipamento Profissional:</strong> Câmeras cinema, áudio dedicado e iluminação profissional</li>
                         <li><strong>Consultoria Incluída:</strong> Análise completa do seu negócio antes de cada projeto</li>
+                        <li><strong>Deslocamento:</strong> grátis até 5km de Jaraguá</li>
+                        <li><strong>Pagamento facilitado:</strong> 50% no agendamento + 50% na entrega</li>
+                        <li><strong>Indicação:</strong> Ganhe R$ 50 de desconto na próxima sessão</li>
                     </ul>
                 </div>
             </div>
@@ -2326,7 +2831,7 @@
                     </table>
                 </div>
                 <div class="notes">
-                    <h3>🚁 Serviços de Drone Personalizados:</h3>
+                    <h3><i class="fas fa-drone"></i> Serviços de Drone Personalizados:</h3>
                     <ul>
                         <li><strong>Orçamento personalizado:</strong> Cada projeto de drone é único e avaliado individualmente</li>
                         <li><strong>Fatores que influenciam o valor:</strong> Localização, complexidade, duração e finalidade</li>
@@ -2340,13 +2845,13 @@
     </section>
 
     <!-- Seção Parallax -->
-    <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1519996529932-47c8dd291b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+    <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1519996529932-47c8dd291b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
         <div class="parallax-overlay"></div>
         <div class="container parallax-content">
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h2 style="color: var(--primary); font-size: 3rem; margin-bottom: 30px;">QUALIDADE CINEMA EM CADA PROJETO</h2>
-                <p style="font-size: 1.5rem; color: var(--light); margin-bottom: 40px;">Tecnologia de ponta, criatividade e estratégia para elevar sua marca</p>
-                <a href="#contact" class="hero-btn" style="font-size: 1.2rem; padding: 15px 40px;">Fazer um Orçamento</a>
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <h2 style="color: var(--primary); font-size: 3.5rem; margin-bottom: 40px; text-shadow: 0 5px 15px rgba(0,0,0,0.7);">QUALIDADE CINEMA EM CADA PROJETO</h2>
+                <p style="font-size: 1.8rem; color: var(--light); margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Tecnologia de ponta, criatividade e estratégia para elevar sua marca</p>
+                <a href="#contact" class="hero-btn" style="font-size: 1.3rem; padding: 20px 50px;">Fazer um Orçamento</a>
             </div>
         </div>
     </section>
@@ -2392,7 +2897,7 @@
     <section id="portfolio" class="portfolio-section">
         <div class="container">
             <h2 class="section-title">Nosso Portfólio</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #ccc;" class="section-description">Confira alguns dos nossos trabalhos com qualidade cinema</p>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.3rem; color: #ddd;" class="section-description">Confira alguns dos nossos trabalhos com qualidade cinema</p>
             
             <!-- Abas do Portfólio -->
             <div class="portfolio-tabs">
@@ -2406,37 +2911,37 @@
                 <div class="gallery">
                     <!-- Casamento Premium -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Casamento Premium" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Casamento Premium" loading="lazy">
                         <div class="gallery-caption">Casamento Premium - Momentos Únicos</div>
                     </div>
                     
                     <!-- Fotografia de Produtos -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia de Produtos" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Fotografia de Produtos" loading="lazy">
                         <div class="gallery-caption">Fotografia de Produtos - E-commerce</div>
                     </div>
                     
                     <!-- Ensaios de Retrato -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ensaios de Retrato" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1188&q=80" alt="Ensaios de Retrato" loading="lazy">
                         <div class="gallery-caption">Ensaios de Retrato - Sessão Personalizada</div>
                     </div>
                     
                     <!-- Fotografia Gastronômica -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fotografia Gastronômica" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" alt="Fotografia Gastronômica" loading="lazy">
                         <div class="gallery-caption">Fotografia Gastronômica - Pratos Irresistíveis</div>
                     </div>
                     
                     <!-- Evento Corporativo -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Evento Corporativo" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Evento Corporativo" loading="lazy">
                         <div class="gallery-caption">Evento Corporativo - Cobertura Completa</div>
                     </div>
                     
                     <!-- Cerimônia de Formatura -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cerimônia de Formatura" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cerimônia de Formatura" loading="lazy">
                         <div class="gallery-caption">Cerimônia de Formatura - Momentos Especiais</div>
                     </div>
                 </div>
@@ -2447,25 +2952,25 @@
                 <div class="gallery">
                     <!-- Vídeo Comercial -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Vídeo Comercial" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Vídeo Comercial" loading="lazy">
                         <div class="gallery-caption">Vídeo Comercial - Institucional Profissional</div>
                     </div>
                     
                     <!-- Conteúdo para Redes Sociais -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Conteúdo para Redes Sociais" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Conteúdo para Redes Sociais" loading="lazy">
                         <div class="gallery-caption">Conteúdo para Redes Sociais - Estratégico e Engajador</div>
                     </div>
                     
                     <!-- Evento Corporativo -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Evento Corporativo" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Evento Corporativo" loading="lazy">
                         <div class="gallery-caption">Evento Corporativo - Filmagem Profissional</div>
                     </div>
                     
                     <!-- Entrevista Corporativa -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Entrevista Corporativa" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Entrevista Corporativa" loading="lazy">
                         <div class="gallery-caption">Entrevista Corporativa - Captura de Depoimentos</div>
                     </div>
                 </div>
@@ -2476,25 +2981,25 @@
                 <div class="gallery">
                     <!-- Filmagem Aérea para Imobiliária -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1519996529932-47c8dd291b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Filmagem Aérea para Imobiliária" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1519996529932-47c8dd291b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Filmagem Aérea para Imobiliária" loading="lazy">
                         <div class="gallery-caption">Filmagem Aérea para Imobiliária - Perspectiva Única</div>
                     </div>
                     
                     <!-- Eventos com Cenas Aéreas -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Eventos com Cenas Aéreas" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Eventos com Cenas Aéreas" loading="lazy">
                         <div class="gallery-caption">Eventos com Cenas Aéreas - Grandiosidade</div>
                     </div>
                     
                     <!-- Filmagem Aérea Publicitária -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Filmagem Aérea Publicitária" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Filmagem Aérea Publicitária" loading="lazy">
                         <div class="gallery-caption">Filmagem Aérea Publicitária - Impacto Visual</div>
                     </div>
                     
                     <!-- Mapeamento de Obras -->
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1545150662-4b3d3c0699a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Mapeamento de Obras" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1545150662-4b3d3c0699a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" alt="Mapeamento de Obras" loading="lazy">
                         <div class="gallery-caption">Mapeamento de Obras - Documentação Completa</div>
                     </div>
                 </div>
@@ -2510,7 +3015,7 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"A qualidade da filmagem em LOG 4K é impressionante! Nosso vídeo institucional ficou profissional e a estratégia de marketing ajudou a aumentar nossas vendas em 40%."</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Carlos Silva" class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Carlos Silva" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Carlos Silva</h4>
                             <p>Dono de Empresa</p>
@@ -2520,7 +3025,7 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"O estudo de neuromarketing fez toda a diferença em nossas campanhas. Os vídeos têm engajamento muito maior e estamos convertendo mais clientes."</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b332c8cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mariana Costa" class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b332c8cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mariana Costa" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Mariana Costa</h4>
                             <p>Gerente de Marketing</p>
@@ -2530,7 +3035,7 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"A qualidade cinematográfica dos vídeos superou minhas expectativas. O trabalho de pós-produção é impecável e o resultado final é simplesmente incrível!"</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Ricardo Mendes" class="testimonial-avatar">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Ricardo Mendes" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Ricardo Mendes</h4>
                             <p>Produtor de Eventos</p>
@@ -2647,37 +3152,100 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // JavaScript para funcionalidades do site
+        // Inicializar partículas
         document.addEventListener('DOMContentLoaded', function() {
-            // Criar partículas para efeito visual
-            function createParticles() {
-                const particlesContainer = document.getElementById('particles');
-                const particleCount = 30;
-                
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    
-                    // Tamanho aleatório
-                    const size = Math.random() * 10 + 5;
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    
-                    // Posição aleatória
-                    particle.style.left = `${Math.random() * 100}%`;
-                    
-                    // Atraso aleatório para animação
-                    particle.style.animationDelay = `${Math.random() * 15}s`;
-                    
-                    // Opacidade aleatória
-                    particle.style.opacity = Math.random() * 0.5 + 0.1;
-                    
-                    particlesContainer.appendChild(particle);
-                }
-            }
-            
-            createParticles();
+            // Configuração das partículas
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#d4af37"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 2,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#d4af37",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            });
 
             // Sistema de abas de serviços
             const serviceTabs = document.querySelectorAll('.service-tab');
@@ -2778,12 +3346,12 @@
                 scrollTimer = setTimeout(function() {
                     const header = document.querySelector('header');
                     if (window.scrollY > 100) {
-                        header.style.background = 'rgba(0, 0, 0, 0.95)';
-                        header.style.backdropFilter = 'blur(15px)';
+                        header.style.background = 'rgba(10, 10, 10, 0.95)';
+                        header.style.backdropFilter = 'blur(20px) saturate(180%)';
                         header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
                     } else {
-                        header.style.background = 'rgba(0, 0, 0, 0.9)';
-                        header.style.backdropFilter = 'blur(10px)';
+                        header.style.background = 'rgba(10, 10, 10, 0.8)';
+                        header.style.backdropFilter = 'blur(15px) saturate(180%)';
                         header.style.boxShadow = 'none';
                     }
                 }, 10);
@@ -2800,7 +3368,7 @@
                 });
             }
 
-            // Sistema do Questionário
+            // Sistema do Questionário - CORREÇÃO APLICADA AQUI
             const questionnaireModal = document.getElementById('questionnaireModal');
             const openQuestionnaireBtn = document.getElementById('openQuestionnaireBtn');
             const closeModal = document.getElementById('closeModal');
@@ -2862,36 +3430,106 @@
                 }
             });
 
-            // Enviar questionário
-            questionnaireForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
+            // CORREÇÃO: Nova função para enviar questionário para WhatsApp
+            function sendQuestionnaireToWhatsApp() {
                 // Coletar dados do formulário
-                const formData = new FormData(questionnaireForm);
-                let message = "Olá! Gostaria de solicitar um orçamento com base nas seguintes informações do questionário:\n\n";
+                const formData = new FormData(document.getElementById('questionnaireForm'));
+                
+                // Criar mensagem de relatório
+                let message = "🚀 *RELATÓRIO DO QUESTIONÁRIO* 🚀\n\n";
+                message += "Olá! Segue o relatório do questionário preenchido:\n\n";
                 
                 // Adicionar cada campo à mensagem
                 for (let [key, value] of formData.entries()) {
                     if (value) {
-                        message += `• ${key}: ${value}\n`;
+                        // Formatar o nome do campo para melhor legibilidade
+                        const fieldName = formatFieldName(key);
+                        message += `*${fieldName}:* ${value}\n`;
                     }
                 }
+                
+                // Adicionar informações finais
+                message += "\n---\n";
+                message += "Enviado via site Um Fotógrafo Amador\n";
+                message += "Aguardando análise e retorno!";
                 
                 // Codificar mensagem para URL
                 const encodedMessage = encodeURIComponent(message);
                 
-                // Redirecionar para WhatsApp
-                window.open(`https://wa.me/5562984332509?text=${encodedMessage}`, '_blank');
+                // Abrir WhatsApp com a mensagem pré-preenchida
+                const whatsappURL = `https://wa.me/5562984332509?text=${encodedMessage}`;
+                window.open(whatsappURL, '_blank');
                 
-                // Fechar modal
-                questionnaireModal.style.display = 'none';
+                // Fechar modal do questionário
+                document.getElementById('questionnaireModal').style.display = 'none';
                 
                 // Resetar formulário
-                questionnaireForm.reset();
+                document.getElementById('questionnaireForm').reset();
                 
                 // Voltar para primeira seção
                 currentSection = 0;
                 showSection(currentSection);
+            }
+
+            // Função auxiliar para formatar os nomes dos campos
+            function formatFieldName(fieldName) {
+                // Mapear nomes de campos para versões mais legíveis
+                const fieldMap = {
+                    'name': 'Nome ou Razão Social',
+                    'email': 'E-mail para contato',
+                    'phone': 'Telefone/WhatsApp',
+                    'social': 'Site ou redes sociais',
+                    'know': 'Como nos conheceu',
+                    'know_other_text': 'Como nos conheceu (outro)',
+                    'profile': 'Está contratando como',
+                    'profile_outro_text': 'Está contratando como (outro)',
+                    'goal': 'Principal objetivo',
+                    'goal_other_text': 'Principal objetivo (outro)',
+                    'project_description': 'Descrição do projeto',
+                    'entrepreneur_name': 'Nome do empresário/empreendedor',
+                    'entrepreneur_history': 'Trajetória e experiência',
+                    'motivation': 'Motivação no negócio',
+                    'pride': 'Maior orgulho',
+                    'hobbies': 'Hobbies e interesses',
+                    'company_history': 'História da empresa',
+                    'mission': 'Missão, visão e valores',
+                    'differential': 'Diferencial no mercado',
+                    'challenges': 'Maiores desafios',
+                    'achievements': 'Principais conquistas',
+                    'employees': 'Quantidade de funcionários',
+                    'location': 'Região/cidade',
+                    'region_influence': 'Influência da região',
+                    'daily_routine': 'Dia a dia da empresa',
+                    'community': 'Relação com a comunidade',
+                    'colors': 'Paleta de cores',
+                    'style': 'Estilo visual',
+                    'style_other_text': 'Estilo visual (outro)',
+                    'brand_manual': 'Manual de marca',
+                    'perception': 'Como gostaria de ser percebido',
+                    'perception_other_text': 'Como gostaria de ser percebido (outro)',
+                    'humor': 'Uso de humor na comunicação',
+                    'expressions': 'Termos ou expressões utilizadas',
+                    'social_media': 'Redes sociais utilizadas',
+                    'social_other_text': 'Redes sociais (outro)',
+                    'content_type': 'Tipo de conteúdo preferido',
+                    'content_other_text': 'Tipo de conteúdo (outro)',
+                    'references': 'Marcas ou perfis de referência',
+                    'music_preference': 'Preferência por estilo musical',
+                    'music_styles': 'Estilos ou artistas preferidos',
+                    'vocal': 'Preferência por músicas com vocal',
+                    'values': 'O que mais valoriza',
+                    'value_other_text': 'O que mais valoriza (outro)',
+                    'dislikes': 'O que não gostaria de ver',
+                    'material': 'Possui material de referência',
+                    'suggestions': 'Deseja receber sugestões'
+                };
+                
+                return fieldMap[fieldName] || fieldName;
+            }
+
+            // CORREÇÃO: Substituir o evento de submit pelo botão de envio para WhatsApp
+            submitBtn.addEventListener('click', function() {
+                sendQuestionnaireToWhatsApp();
             });
 
             // Suporte para prefers-reduced-motion
